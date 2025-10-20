@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func change_scene(new_scene_path: String, effect_name = null) -> void:
-	var shader
+	var shader: ShaderMaterial
 	if effect_name and shader_effects.has(effect_name):
 		shader = shader_effects[effect_name]
 	else:

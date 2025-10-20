@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-@export_file var prev_scene
+@export_file var prev_scene: String
 
 
 func _on_exit_button_up() -> void:

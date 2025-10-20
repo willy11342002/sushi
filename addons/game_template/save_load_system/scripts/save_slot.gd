@@ -17,11 +17,11 @@ func setup(_file_name: String, _modified_time: int, _full_path: String) -> void:
 	file_name = _file_name
 	modified_time = _modified_time
 
-func select():
+func select() -> void:
 	slot_select.emit(self)
 	hover_rect.show()
 
-func unselect():
+func unselect() -> void:
 	hover_rect.hide()
 
 

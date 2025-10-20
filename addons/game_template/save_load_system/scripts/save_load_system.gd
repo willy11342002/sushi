@@ -1,9 +1,9 @@
 extends CanvasLayer
 
 
-@export_enum("Save", "Load") var mode
-@export_file var next_scene
-@export_file var prev_scene
+@export_enum("Save", "Load") var mode: String
+@export_file var next_scene: String
+@export_file var prev_scene: String
 @export var input_dialog_scene: PackedScene
 @export var confirm_dialog_scene: PackedScene
 
@@ -21,10 +21,7 @@ var _select_slot: SaveSlot
 var _save_path := "user://Saves/"
 
 
-func _ready():
-	# if MapManager._instance != null:
-	# 	self.hide()
-
+func _ready() -> void:
 	match mode:
 		"Load":
 			save_button.hide()
@@ -34,11 +31,11 @@ func _ready():
 	_load_save_list_from_disk()
 
 
-func _load_save_list_from_disk():
+func _load_save_list_from_disk() -> void:
 	if not DirAccess.dir_exists_absolute(_save_path):
 		DirAccess.make_dir_absolute(_save_path)
 
-	var file_names = Array(DirAccess.get_files_at(_save_path))
+	var file_names: Array[String] = Array(DirAccess.get_files_at(_save_path))
 	file_names.sort_custom(func(a, b):
 		var a_time = FileAccess.get_modified_time(_save_path + a)
 		var b_time = FileAccess.get_modified_time(_save_path + b)
@@ -46,8 +43,8 @@ func _load_save_list_from_disk():
 	)
 
 	for file_name in file_names:
-		var modified_time = FileAccess.get_modified_time(_save_path + file_name)
-		var slot = save_slot.instantiate()
+		var modified_time: int = FileAccess.get_modified_time(_save_path + file_name)
+		var slot: SaveSlot = save_slot.instantiate()
 		slot.setup(file_name, modified_time, _save_path + file_name)
 		save_list.add_child(slot)
 		slot.slot_select.connect(_on_change_selected_slot)
@@ -66,22 +63,22 @@ func _on_change_selected_slot(slot: SaveSlot) -> void:
 	delete_button.disabled = slot == null
 
 
-func _show_create_dialog():
-	var dialog = input_dialog_scene.instantiate() as InputDialog
+func _show_create_dialog() -> void:
+	var dialog: InputDialog = input_dialog_scene.instantiate() as InputDialog
 	add_child(dialog)
 	dialog.show_dialog(_on_create_button_confirm, "New_Save", "Create")
 
-func _show_delete_dialog():
-	var dialog = confirm_dialog_scene.instantiate() as ConfirmDialog
+func _show_delete_dialog() -> void:
+	var dialog: ConfirmDialog = confirm_dialog_scene.instantiate() as ConfirmDialog
 	add_child(dialog)
 	dialog.show_dialog(_on_delete_button_confirm, "Are you sure you want to delete this save?", "Confirm")
 
 
-func _on_create_button_confirm(title) -> void:
-	var data = SaveData.create(_save_path, title)
+func _on_create_button_confirm(title: String) -> void:
+	var data: SaveData = SaveData.create(_save_path, title)
 	ResourceSaver.save(data, data.file_name)
 
-	var slot = save_slot.instantiate()
+	var slot: SaveSlot = save_slot.instantiate()
 	slot.setup(data.title, data.modified_time, data.file_name)
 	save_list.add_child(slot)
 	save_list.move_child(slot, 0)

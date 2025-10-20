@@ -10,12 +10,12 @@ func _init():
 	Persistence.input_map_changed.connect(update_key_text)
 
 
-func _ready():
+func _ready() -> void:
 	set_process_unhandled_input(false)
 	update_key_text()
 
 
-func _toggled(_button_pressed):
+func _toggled(_button_pressed) -> void:
 	set_process_unhandled_input(_button_pressed)
 	if _button_pressed:
 		text = "Awaiting Input ..."
@@ -24,7 +24,7 @@ func _toggled(_button_pressed):
 		grab_focus()
 
 
-func _unhandled_input(event: InputEvent):
+func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouse:
 		return
 	if not event.pressed:
@@ -42,7 +42,7 @@ func _unhandled_input(event: InputEvent):
 	Persistence.input_map_changed.emit()
 
 
-func update_key_text():
+func update_key_text() -> void:
 	var _events = InputMap.action_get_events(action)
 	if _events.size() > 0:
 		text = "%s" % _events[0].as_text()

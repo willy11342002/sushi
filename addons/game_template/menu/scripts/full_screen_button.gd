@@ -2,7 +2,7 @@ class_name FullScreenButton extends CheckButton
 
 
 func _toggled(_pressed: bool) -> void:
-	var win := get_window()
+	var win: Window = get_window()
 	if _pressed:
 		win.mode = Window.MODE_FULLSCREEN
 	else:

@@ -1,9 +1,8 @@
 class_name SaveData extends Resource
 
 
-@export var title := ""
-@export var file_name := ""
-@export var map_data := {}
+@export var title: String = ""
+@export var file_name: String = ""
 
 
 static func create(_path: String, _title: String) -> SaveData:
@@ -13,8 +12,8 @@ static func create(_path: String, _title: String) -> SaveData:
 
 
 func set_title(save_path: String, new_title: String) -> void:
-	var base_title = new_title
-	var counter = 0
+	var base_title: String = new_title
+	var counter: int = 0
 	while FileAccess.file_exists(save_path + new_title + ".res"):
 		counter += 1
 		new_title = base_title + "_" + str(counter)
