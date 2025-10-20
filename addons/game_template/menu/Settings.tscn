@@ -1,0 +1,256 @@
+[gd_scene load_steps=6 format=3 uid="uid://bc3f8ayb78poq"]
+
+[ext_resource type="Script" uid="uid://cwkbk1kr53256" path="res://addons/game_template/menu/scripts/settings.gd" id="1_ny7b4"]
+[ext_resource type="Script" uid="uid://lxaj6budiisu" path="res://addons/game_template/menu/scripts/audio_slider.gd" id="2_6fe0h"]
+[ext_resource type="Script" uid="uid://dfmuf0kocbwuj" path="res://addons/game_template/menu/scripts/full_screen_button.gd" id="2_jkr0v"]
+[ext_resource type="Script" uid="uid://btugl3ty8y80f" path="res://addons/game_template/menu/scripts/remap_button.gd" id="2_xmei1"]
+[ext_resource type="Script" uid="uid://qfcl73370rb4" path="res://addons/game_template/menu/scripts/resolution_option_button.gd" id="3_ah25y"]
+
+[node name="Settings" type="CanvasLayer"]
+script = ExtResource("1_ny7b4")
+prev_scene = "uid://vdg314f1160w"
+
+[node name="Background" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 0.470588)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabContainer" type="TabContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 2
+current_tab = 0
+
+[node name="Video" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Video"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "FullScreen"
+
+[node name="FullscreenButton" type="CheckButton" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+flat = true
+script = ExtResource("2_jkr0v")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Resolution"
+
+[node name="ResolutionSelect" type="OptionButton" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+selected = 0
+item_count = 5
+popup/item_0/text = "640x360"
+popup/item_0/id = 0
+popup/item_1/text = "1024x576"
+popup/item_1/id = 1
+popup/item_2/text = "1280x720"
+popup/item_2/id = 2
+popup/item_3/text = "1440x810"
+popup/item_3/id = 3
+popup/item_4/text = "1920x1080"
+popup/item_4/id = 4
+script = ExtResource("3_ah25y")
+
+[node name="Audio" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 8
+metadata/_tab_index = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio"]
+layout_mode = 2
+alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 24)
+layout_mode = 2
+script = ExtResource("2_6fe0h")
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "BGM"
+
+[node name="BGMSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(120, 24)
+layout_mode = 2
+script = ExtResource("2_6fe0h")
+bus_name = "BGM"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(120, 24)
+layout_mode = 2
+script = ExtResource("2_6fe0h")
+bus_name = "SFX"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+text = "UI"
+
+[node name="UISlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(120, 24)
+layout_mode = 2
+script = ExtResource("2_6fe0h")
+bus_name = "UI"
+
+[node name="Input" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 16
+metadata/_tab_index = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Input"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Camera Control"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Camera Move Top"
+
+[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer2"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xmei1")
+action = "camera_move_up"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Camera Move Down"
+
+[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer4"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xmei1")
+action = "camera_move_down"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Camera Move Left"
+
+[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xmei1")
+action = "camera_move_left"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(180, 0)
+layout_mode = 2
+text = "Camera Move Right"
+
+[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer5"]
+custom_minimum_size = Vector2(90, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+script = ExtResource("2_xmei1")
+action = "camera_move_right"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/BackButton" to="." method="_on_exit_button_up"]

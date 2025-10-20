@@ -1,0 +1,98 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvwmnd6o5yauf"]
+
+[ext_resource type="Script" uid="uid://dwhc538awoig6" path="res://addons/game_template/save_load_system/scripts/save_load_system.gd" id="1_b6wie"]
+[ext_resource type="PackedScene" uid="uid://cryc8dxs5sjup" path="res://addons/game_template/save_load_system/save_slot.tscn" id="2_bx8al"]
+[ext_resource type="PackedScene" uid="uid://c0fllv5sn1wrr" path="res://addons/game_template/dialogs/input_dialog.tscn" id="2_rarvi"]
+[ext_resource type="PackedScene" uid="uid://n73ffrp6fxpj" path="res://addons/game_template/dialogs/confirm_dialog.tscn" id="3_hyrb3"]
+
+[node name="SaveLoadSystem" type="CanvasLayer" node_paths=PackedStringArray("save_list", "load_button", "save_button", "create_button", "delete_button", "exit_button")]
+script = ExtResource("1_b6wie")
+mode = 1
+next_scene = "uid://dd5jnb4245w0d"
+prev_scene = "uid://vdg314f1160w"
+input_dialog_scene = ExtResource("2_rarvi")
+confirm_dialog_scene = ExtResource("3_hyrb3")
+save_slot = ExtResource("2_bx8al")
+save_list = NodePath("MainContainer/HBoxContainer/MarginContainer2/ScrollContainer/SaveList")
+load_button = NodePath("MainContainer/HBoxContainer/MarginContainer/VBoxContainer/LoadButton")
+save_button = NodePath("MainContainer/HBoxContainer/MarginContainer/VBoxContainer/SaveButton")
+create_button = NodePath("MainContainer/HBoxContainer/MarginContainer/VBoxContainer/CreateButton")
+delete_button = NodePath("MainContainer/HBoxContainer/MarginContainer/VBoxContainer/DeleteButton")
+exit_button = NodePath("MainContainer/HBoxContainer/MarginContainer/VBoxContainer/ExitButton")
+
+[node name="Panel" type="Panel" parent="."]
+modulate = Color(0, 0, 0, 0.470588)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MainContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(400, 200)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -101.0
+offset_right = 213.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 200)
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="SaveList" type="VBoxContainer" parent="MainContainer/HBoxContainer/MarginContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="CreateButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Create New"
+
+[node name="LoadButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Load"
+
+[node name="SaveButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Save"
+
+[node name="DeleteButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Delete"
+
+[node name="ExitButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="button_up" from="MainContainer/HBoxContainer/MarginContainer/VBoxContainer/CreateButton" to="." method="_show_create_dialog"]
+[connection signal="button_up" from="MainContainer/HBoxContainer/MarginContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_up"]
+[connection signal="button_up" from="MainContainer/HBoxContainer/MarginContainer/VBoxContainer/DeleteButton" to="." method="_show_delete_dialog"]
+[connection signal="button_up" from="MainContainer/HBoxContainer/MarginContainer/VBoxContainer/ExitButton" to="." method="_on_exit_button_up"]

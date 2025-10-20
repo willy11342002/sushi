@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="SaveData" load_steps=2 format=3 uid="uid://c46ivlbmigjbc"]
+
+[ext_resource type="Script" uid="uid://cw32chq14eiux" path="res://addons/game_template/save_load_system/scripts/save_data.gd" id="1_dvlvu"]
+
+[resource]
+script = ExtResource("1_dvlvu")
+title = ""
+file_name = ""
+map_data = {}
+metadata/_custom_type_script = "uid://cw32chq14eiux"

@@ -1,0 +1,47 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="sushi"
+run/main_scene="uid://vdg314f1160w"
+config/features=PackedStringArray("4.4", "GL Compatibility")
+
+[audio]
+
+buses/default_bus_layout="uid://begcjy54cqi3s"
+
+[autoload]
+
+SceneManager="*res://addons/game_template/ui_transition/SceneManager.tscn"
+Persistence="*res://addons/game_template/persistence/Persistence.tscn"
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="expand"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/game_template/plugin.cfg", "res://addons/tingwei_game_template/plugin.cfg")
+
+[gui]
+
+theme/custom="uid://b51s1fdftivxs"
+
+[internationalization]
+
+locale/test="zh_TW"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+2d/snap/snap_2d_transforms_to_pixel=true

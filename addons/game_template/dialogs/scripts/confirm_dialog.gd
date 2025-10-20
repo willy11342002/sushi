@@ -1,0 +1,18 @@
+
+class_name ConfirmDialog extends CanvasLayer
+
+
+@export var message_label: Label
+@export var confirm_button: Button
+@export var cancel_button: Button
+
+
+func show_dialog(confirm :Callable, message := "", confirm_button_text := ""):
+	message_label.text = message
+
+	confirm_button.text = confirm_button_text
+	confirm_button.pressed.connect(func():
+		confirm.call()
+		queue_free()
+	)
+	cancel_button.pressed.connect(queue_free)

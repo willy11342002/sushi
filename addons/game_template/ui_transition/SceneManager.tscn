@@ -1,0 +1,166 @@
+[gd_scene load_steps=19 format=3 uid="uid://dckbn6laj8ea6"]
+
+[ext_resource type="Script" uid="uid://76rxuguisefg" path="res://addons/game_template/ui_transition/scripts/scene_manager.gd" id="1_faroq"]
+[ext_resource type="Shader" uid="uid://bj8u0ajq72pd5" path="res://addons/game_template/ui_transition/shaders/diagonal_sweep.gdshader" id="2_lb5eo"]
+[ext_resource type="Shader" uid="uid://d1wgw8emij5qu" path="res://addons/game_template/ui_transition/shaders/fade.gdshader" id="3_12jce"]
+[ext_resource type="Shader" uid="uid://301bkwpkjc4a" path="res://addons/game_template/ui_transition/shaders/horizontal_sweep.gdshader" id="4_2q03r"]
+[ext_resource type="Shader" uid="uid://dymot48vfrtha" path="res://addons/game_template/ui_transition/shaders/pixel_tiled_sweep.gdshader" id="5_mgl3f"]
+[ext_resource type="Shader" uid="uid://b1mo24lcnqq5g" path="res://addons/game_template/ui_transition/shaders/tiled_sweep.gdshader" id="6_ykbi5"]
+[ext_resource type="Shader" uid="uid://cau01qn5njpjc" path="res://addons/game_template/ui_transition/shaders/vertical_sweep.gdshader" id="7_j2byc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_12jce"]
+shader = ExtResource("2_lb5eo")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2q03r"]
+shader = ExtResource("3_12jce")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mgl3f"]
+shader = ExtResource("4_2q03r")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ykbi5"]
+shader = ExtResource("5_mgl3f")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = false
+shader_parameter/number_of_tiles = Vector2(16, 9)
+shader_parameter/pixel_per_tile = Vector2(16, 16)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2byc"]
+shader = ExtResource("6_ykbi5")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = false
+shader_parameter/number_of_tiles = Vector2(16, 9)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mxxoc"]
+shader = ExtResource("7_j2byc")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = false
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrafk"]
+shader = ExtResource("3_12jce")
+shader_parameter/progress = 0.0
+shader_parameter/reverse = false
+
+[sub_resource type="Animation" id="Animation_h08gv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_xrafk"]
+resource_name = "transition_in"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_lb5eo"]
+resource_name = "transition_out"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/progress")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect:material:shader_parameter/reverse")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xrafk"]
+_data = {
+&"RESET": SubResource("Animation_h08gv"),
+&"transition_in": SubResource("Animation_xrafk"),
+&"transition_out": SubResource("Animation_lb5eo")
+}
+
+[node name="SceneManager" type="CanvasLayer" node_paths=PackedStringArray("animation", "rect")]
+layer = 10
+script = ExtResource("1_faroq")
+animation = NodePath("AnimationPlayer")
+rect = NodePath("ColorRect")
+shader_effects = Dictionary[String, ShaderMaterial]({
+"diagonal_sweep": SubResource("ShaderMaterial_12jce"),
+"fade": SubResource("ShaderMaterial_2q03r"),
+"horizontal_sweep": SubResource("ShaderMaterial_mgl3f"),
+"pixel_tiled_sweep": SubResource("ShaderMaterial_ykbi5"),
+"tiled_sweep": SubResource("ShaderMaterial_j2byc"),
+"vertical_sweep": SubResource("ShaderMaterial_mxxoc")
+})
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+material = SubResource("ShaderMaterial_xrafk")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_xrafk")
+}
