@@ -22,6 +22,10 @@ func _ready() -> void:
 		var slot: SushiTypeSlot = sushi_type_slot.instantiate() as SushiTypeSlot
 		slot.set_sushi_type(resource)
 		slot.slot_select.connect(_on_slot_select)
+		slot.slot_double_click.connect(func(s):
+			_on_slot_select(s)
+			_on_confirm_button_pressed()
+		)
 		sushi_types_container.add_child(slot)
 
 
