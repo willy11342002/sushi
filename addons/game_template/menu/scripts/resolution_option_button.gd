@@ -5,7 +5,7 @@ var _res_list: Array[Vector2i]
 
 func _ready() -> void:
 	for i in item_count:
-		var _text_array: Array[String] = get_item_text(i).split("x")
+		var _text_array: PackedStringArray = get_item_text(i).split("x")
 		var vec: Vector2i = Vector2i(_text_array[0].to_int(), _text_array[1].to_int())
 		_res_list.append(vec)
 	var current_resolution: Vector2i = Persistence.config.get_value("video", "resolution", _res_list[0])

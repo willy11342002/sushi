@@ -38,6 +38,7 @@ func load_settings():
 	else:
 		get_window().mode = Window.MODE_WINDOWED
 
+	TranslationServer.set_locale(config.get_value("video", "language", "en"))
 	get_viewport().size = config.get_value("video", "resolution", Vector2i(640, 360))
 	DisplayServer.window_set_size(get_viewport().size)
 

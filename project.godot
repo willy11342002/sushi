@@ -38,6 +38,7 @@ theme/custom="uid://b51s1fdftivxs"
 
 [internationalization]
 
+locale/translations=PackedStringArray("res://translations/localizations.en.translation", "res://translations/localizations.zh_TW.translation")
 locale/test="zh_TW"
 
 [rendering]

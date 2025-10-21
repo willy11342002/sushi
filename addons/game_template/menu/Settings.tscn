@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc3f8ayb78poq"]
+[gd_scene load_steps=7 format=3 uid="uid://bc3f8ayb78poq"]
 
 [ext_resource type="Script" uid="uid://cwkbk1kr53256" path="res://addons/game_template/menu/scripts/settings.gd" id="1_ny7b4"]
 [ext_resource type="Script" uid="uid://lxaj6budiisu" path="res://addons/game_template/menu/scripts/audio_slider.gd" id="2_6fe0h"]
 [ext_resource type="Script" uid="uid://dfmuf0kocbwuj" path="res://addons/game_template/menu/scripts/full_screen_button.gd" id="2_jkr0v"]
 [ext_resource type="Script" uid="uid://btugl3ty8y80f" path="res://addons/game_template/menu/scripts/remap_button.gd" id="2_xmei1"]
 [ext_resource type="Script" uid="uid://qfcl73370rb4" path="res://addons/game_template/menu/scripts/resolution_option_button.gd" id="3_ah25y"]
+[ext_resource type="Script" uid="uid://denstg0kbr6it" path="res://addons/game_template/menu/scripts/language_button.gd" id="4_ljcmn"]
 
 [node name="Settings" type="CanvasLayer"]
 script = ExtResource("1_ny7b4")
@@ -85,6 +86,20 @@ popup/item_4/text = "1920x1080"
 popup/item_4/id = 4
 script = ExtResource("3_ah25y")
 
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/Video/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Language"
+
+[node name="LanguageButton" type="OptionButton" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer3"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+script = ExtResource("4_ljcmn")
+
 [node name="Audio" type="MarginContainer" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
@@ -105,7 +120,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "Master"
+text = "MasterVolume"
 
 [node name="MasterSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(120, 24)
@@ -119,7 +134,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "BGM"
+text = "BGMVolume"
 
 [node name="BGMSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(120, 24)
@@ -134,7 +149,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "SFX"
+text = "SFXVolume"
 
 [node name="SFXSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(120, 24)
@@ -149,7 +164,7 @@ alignment = 1
 [node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "UI"
+text = "UIVolume"
 
 [node name="UISlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(120, 24)
