@@ -30,11 +30,14 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/game_template/plugin.cfg", "res://addons/tingwei_game_template/plugin.cfg")
+enabled=PackedStringArray("res://addons/game_template/plugin.cfg")
 
 [gui]
 
 theme/custom="uid://b51s1fdftivxs"
+theme/default_font_antialiasing=2
+theme/default_font_hinting=2
+theme/default_font_subpixel_positioning=2
 
 [internationalization]
 
@@ -43,6 +46,7 @@ locale/test="zh_TW"
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 2d/snap/snap_2d_transforms_to_pixel=true

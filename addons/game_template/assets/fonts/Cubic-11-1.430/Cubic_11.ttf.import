@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://6axioryn0qld"
-path="res://.godot/imported/ark-pixel-10px-monospaced-latin.ttf-9d7cb36fef97ecac7948f48eba2d194b.fontdata"
+uid="uid://clvhc8tbba0u3"
+path="res://.godot/imported/Cubic_11.ttf-7cfd61a6cc0be4bc10e74f2b08d0c6ed.fontdata"
 
 [deps]
 
-source_file="res://addons/game_template/assets/fonts/ark-pixel-font-10px-monospaced-ttf-v2025.08.24/ark-pixel-10px-monospaced-latin.ttf"
-dest_files=["res://.godot/imported/ark-pixel-10px-monospaced-latin.ttf-9d7cb36fef97ecac7948f48eba2d194b.fontdata"]
+source_file="res://addons/game_template/assets/fonts/Cubic-11-1.430/Cubic_11.ttf"
+dest_files=["res://.godot/imported/Cubic_11.ttf-7cfd61a6cc0be4bc10e74f2b08d0c6ed.fontdata"]
 
 [params]
 
