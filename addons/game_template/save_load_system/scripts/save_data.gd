@@ -3,11 +3,13 @@ class_name SaveData extends Resource
 
 @export var title: String = ""
 @export var file_name: String = ""
+@export var modified_time: int = 0
 
 
 static func create(_path: String, _title: String) -> SaveData:
 	var data = SaveData.new()
 	data.set_title(_path, _title)
+	data.modified_time = Time.get_unix_time_from_system()
 	return data
 
 

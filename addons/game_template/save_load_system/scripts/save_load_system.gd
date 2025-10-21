@@ -35,7 +35,7 @@ func _load_save_list_from_disk() -> void:
 	if not DirAccess.dir_exists_absolute(_save_path):
 		DirAccess.make_dir_absolute(_save_path)
 
-	var file_names: Array[String] = Array(DirAccess.get_files_at(_save_path))
+	var file_names: Array = Array(DirAccess.get_files_at(_save_path))
 	file_names.sort_custom(func(a, b):
 		var a_time = FileAccess.get_modified_time(_save_path + a)
 		var b_time = FileAccess.get_modified_time(_save_path + b)
