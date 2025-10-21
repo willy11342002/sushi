@@ -1,0 +1,110 @@
+[gd_scene load_steps=7 format=3 uid="uid://bafi6sjsocpc3"]
+
+[ext_resource type="Script" uid="uid://brepkyfovi6xs" path="res://scenes/cook/sushi_type_choose_window/sushi_type_choose_window.gd" id="1_4ljvf"]
+[ext_resource type="Resource" uid="uid://dnaj1y6ggaprq" path="res://resources/sushi_types/Gunkan.tres" id="2_1lef3"]
+[ext_resource type="PackedScene" uid="uid://ctr002j5xqidt" path="res://scenes/cook/sushi_type_choose_window/sushi_type_slot.tscn" id="2_q3fk6"]
+[ext_resource type="Resource" uid="uid://d34cm46rn6013" path="res://resources/sushi_types/Nigiri.tres" id="3_h4ogk"]
+[ext_resource type="Resource" uid="uid://budx5c74c8f2n" path="res://resources/sushi_types/NiriMaki.tres" id="4_8mj2y"]
+[ext_resource type="Resource" uid="uid://bi4c76gn6xv62" path="res://resources/sushi_types/Temaki.tres" id="5_i2ut0"]
+
+[node name="SushiTypeChooseWindow" type="Control" node_paths=PackedStringArray("loader", "sushi_types_container", "texture_rect", "title_label", "description_label")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ljvf")
+sushi_type_slot = ExtResource("2_q3fk6")
+loader = NodePath("ResourcePreloader")
+sushi_types_container = NodePath("MainContainer/VBoxContainer/HBoxContainer/MarginContainer2/ScrollContainer/SushiTypeContainer")
+texture_rect = NodePath("MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/TextureRect")
+title_label = NodePath("MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/TitleLabel")
+description_label = NodePath("MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/DescriptionLabel")
+
+[node name="ResourcePreloader" type="ResourcePreloader" parent="."]
+resources = [PackedStringArray("Gunkan", "Nigiri", "NiriMaki", "Temaki"), [ExtResource("2_1lef3"), ExtResource("3_h4ogk"), ExtResource("4_8mj2y"), ExtResource("5_i2ut0")]]
+
+[node name="MainContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -213.0
+offset_top = -101.0
+offset_right = 213.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="MainContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="SushiTypeContainer" type="VBoxContainer" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer2/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="DescriptionLabel" type="Label" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_vertical = 3
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="MainContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MainContainer/VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CancelButton" type="Button" parent="MainContainer/VBoxContainer/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Exit"
+
+[node name="ConfirmButton" type="Button" parent="MainContainer/VBoxContainer/MarginContainer/HBoxContainer2"]
+layout_mode = 2
+text = "Confirm"
+
+[connection signal="button_up" from="MainContainer/VBoxContainer/MarginContainer/HBoxContainer2/CancelButton" to="." method="_on_cancel_button_pressed"]
+[connection signal="button_up" from="MainContainer/VBoxContainer/MarginContainer/HBoxContainer2/ConfirmButton" to="." method="_on_confirm_button_pressed"]

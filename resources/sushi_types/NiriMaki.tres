@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SushiType" load_steps=4 format=3 uid="uid://budx5c74c8f2n"]
+
+[ext_resource type="Script" uid="uid://c8e4t52uvijpg" path="res://scripts/resources/sushi_type.gd" id="1_n2qqa"]
+[ext_resource type="Texture2D" uid="uid://dk5xb47whxrea" path="res://assets/sushi/sushi_type.png" id="2_2ev3x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xvln"]
+atlas = ExtResource("2_2ev3x")
+region = Rect2(128, 0, 64, 64)
+
+[resource]
+script = ExtResource("1_n2qqa")
+texture = SubResource("AtlasTexture_3xvln")
+type_name = "NiriMaki"
+description = "NiriMakiDescription"
+info = "遊戲定位：強調「連鎖 / 組合」，適合做成套餐與快速供應。
+效果機制：出餐速度加成（複雜度係數0.8、出餐速度係數1.2），且連續出同類鐵火捲可累積 chain bonus（每連續第 n 份 +2% 收入，最高 +10%）。
+製作特性：微遊戲為「節奏/多按鍵」操作（快速按按鈕以連接材料）。
+適合：鮪魚泥、蔬菜捲、辛味醬搭配。"
+metadata/_custom_type_script = "uid://c8e4t52uvijpg"

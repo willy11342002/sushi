@@ -7,8 +7,7 @@
 
 [node name="SaveLoadSystem" type="CanvasLayer" node_paths=PackedStringArray("save_list", "load_button", "save_button", "create_button", "delete_button", "exit_button")]
 script = ExtResource("1_b6wie")
-mode = 1
-next_scene = "uid://dd5jnb4245w0d"
+next_scene = "uid://c7xpvnsugikgo"
 prev_scene = "uid://vdg314f1160w"
 input_dialog_scene = ExtResource("2_rarvi")
 confirm_dialog_scene = ExtResource("3_hyrb3")
@@ -74,19 +73,19 @@ layout_mode = 2
 
 [node name="CreateButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Create New"
+text = "CreateNewGame"
 
 [node name="LoadButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Load"
+text = "LoadGame"
 
 [node name="SaveButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Save"
+text = "SaveGame"
 
 [node name="DeleteButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Delete"
+text = "DeleteGame"
 
 [node name="ExitButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

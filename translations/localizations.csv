@@ -1,8 +1,16 @@
 key,en,zh_TW
-gunkan,gunkan,軍艦
+Gunkan,gunkan,軍艦
+GunKanDescription,"Gunkan sushi is a type of sushi where vinegared rice is wrapped with nori seaweed and topped with various loose or soft ingredients. Its name comes from its battleship-like appearance.\nThis design prevents toppings like salmon roe, sea urchin, and flying fish roe from falling off.",軍艦壽司是一種將醋飯用海苔圍起來，並在上方盛放各式鬆散或柔軟配料的壽司，因外型像軍艦而得名。\n這種設計能防止像鮭魚卵、海膽、飛魚卵等配料散落。
+Nigiri,nigiri,握壽司
+NigiriDescription,"Nigiri sushi is a classic type of sushi made by molding vinegared rice with seafood or other ingredients into a bite-sized piece.\nIt emphasizes the presentation of the \"main ingredient\" and is suitable for high-quality main ingredients.",握壽司是一種將醋飯與海鮮或其他食材捏製成一口大小的經典壽司。\n能夠突出「主食材」表現，適合高品質主料。
+NiriMaki,niri maki,壽司捲
+NiriMakiDescription,"Niri Maki is a type of sushi where vinegared rice and ingredients are placed on nori seaweed and then rolled up with a bamboo mat, allowing for a variety of ingredients to be enjoyed at once.",壽司捲是一種將醋飯和配料放在海苔上，再用竹簾捲起的壽司，可以一次享受多種食材。
+Temaki,temaki,手卷
+TemakiDescription,"Temaki is a type of sushi where vinegared rice and ingredients (such as seafood and vegetables) are placed on a crispy sheet of nori and rolled into a cone shape, making it easy to hold and eat with your hands.\nIt emphasizes the original flavors of the ingredients and the crispiness of the nori, and should be enjoyed fresh for the best taste.",手捲特色是將醋飯、配料（如海鮮、蔬菜等）放在烤酥脆的海苔上，並以錐形方式捲起，方便用手拿取食用。\n它強調食材的原味與海苔的香脆口感，需趁新鮮立即品嚐以享受最佳風味。
 StartGame,Start Game,開始遊戲
 Settings,Settings,設定
 Credit,Credit,製作團隊
+Confirm,Confirm,確認
 Exit,Exit,退出
 Video,Video,視訊
 Audio,Audio,音訊
@@ -14,3 +22,7 @@ MasterVolume,Master,主音量
 BGMVolume,BGM,背景音量
 SFXVolume,SFX,音效音量
 UIVolume,UI,介面音量
+CreateNewGame,Create New,建立新遊戲
+LoadGame,Load,載入遊戲
+SaveGame,Save,儲存遊戲
+DeleteGame,Delete,刪除遊戲

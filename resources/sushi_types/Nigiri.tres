@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="SushiType" load_steps=4 format=3 uid="uid://d34cm46rn6013"]
+
+[ext_resource type="Script" uid="uid://c8e4t52uvijpg" path="res://scripts/resources/sushi_type.gd" id="1_a3shf"]
+[ext_resource type="Texture2D" uid="uid://dk5xb47whxrea" path="res://assets/sushi/sushi_type.png" id="2_vndmt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3yy5a"]
+atlas = ExtResource("2_vndmt")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+script = ExtResource("1_a3shf")
+texture = SubResource("AtlasTexture_3yy5a")
+type_name = "Nigiri"
+description = "NigiriDescription"
+info = "遊戲定位：突出「主食材」表現，適合高品質主料。
+效果機制：主食材品質權重大（主食材貢獻係數 = 1.4）；副食材/裝飾加成較小(0.9)。
+製作特性：微遊戲重在「Timing 精準度」一次按鍵判定；高精準獲得視覺「光澤」或「切片完整度」加成。
+適合：高級魚類（鮪、海膽、干貝）。"
+metadata/_custom_type_script = "uid://c8e4t52uvijpg"
