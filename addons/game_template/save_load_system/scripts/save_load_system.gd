@@ -74,12 +74,12 @@ func _on_slot_select(slot: SaveSlot) -> void:
 func _show_create_dialog() -> void:
 	var dialog: InputDialog = input_dialog_scene.instantiate() as InputDialog
 	add_child(dialog)
-	dialog.show_dialog(_on_create_button_confirm, "New_Save", "Create")
+	dialog.show_dialog(_on_create_button_confirm, "New Save")
 
 func _show_delete_dialog() -> void:
 	var dialog: ConfirmDialog = confirm_dialog_scene.instantiate() as ConfirmDialog
 	add_child(dialog)
-	dialog.show_dialog(_on_delete_button_confirm, "Are you sure you want to delete this save?", "Confirm")
+	dialog.show_dialog(_on_delete_button_confirm, "DeleteConfirm")
 
 
 func _on_create_button_confirm(title: String) -> void:
@@ -94,10 +94,10 @@ func _on_create_button_confirm(title: String) -> void:
 
 
 func _on_save_button_up() -> void:
-	Persistence.data.save_to_file(_select_slot.full_path)
+	Persistence.save_data()
 	var dialog: AlertDialog = alert_dialog_scene.instantiate() as AlertDialog
 	add_child(dialog)
-	dialog.show_dialog(func(): pass, "Game saved successfully!", "OK")
+	dialog.show_dialog(func(): pass, "SaveGameSuccess")
 
 
 func _on_delete_button_confirm():

@@ -266,6 +266,6 @@ alignment = 1
 
 [node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Back"
+text = "Exit"
 
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/BackButton" to="." method="_on_exit_button_up"]

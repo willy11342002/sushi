@@ -30,8 +30,8 @@ func _format_title(file_name: String) -> String:
 	return file_name.replace(".res", "")
 
 func _format_time(unix_time: int) -> String:
-	var dt: String = Time.get_datetime_string_from_unix_time(unix_time)
-	return "Last Updated: " + dt
+	var time: String = Time.get_datetime_string_from_unix_time(unix_time)
+	return tr("SaveDataModifiedTime").format({"time": time})
 
 
 func _on_gui_input(event: InputEvent) -> void:

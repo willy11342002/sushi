@@ -6,7 +6,7 @@ class_name InputDialog extends CanvasLayer
 @export var cancel_button: Button
 
 
-func show_dialog(confirm :Callable, placeholder := "", confirm_button_text := ""):
+func show_dialog(confirm :Callable, placeholder := "", confirm_button_text := "Confirm"):
 	input_field.placeholder_text = placeholder
 	input_field.grab_focus()
 
