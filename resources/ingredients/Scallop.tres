@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://dloomptsxd2gv"]
+
+[ext_resource type="Script" uid="uid://uo0mv2gxrfxk" path="res://scripts/resources/ingredient.gd" id="1_3gaxt"]
+
+[resource]
+resource_name = "Scallop"
+script = ExtResource("1_3gaxt")
+info = ""
+metadata/_custom_type_script = "uid://uo0mv2gxrfxk"

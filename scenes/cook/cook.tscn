@@ -1,19 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://c7xpvnsugikgo"]
+[gd_scene load_steps=8 format=3 uid="uid://c7xpvnsugikgo"]
 
 [ext_resource type="Script" uid="uid://brwo0i4b5aqy1" path="res://scenes/cook/cook.gd" id="1_ahm5u"]
-[ext_resource type="PackedScene" uid="uid://bafi6sjsocpc3" path="res://scenes/cook/sushi_type_choose_window/sushi_type_choose_window.tscn" id="1_m3shg"]
+[ext_resource type="PackedScene" uid="uid://bafi6sjsocpc3" path="res://scenes/cook/sushi_type_choose_window/list_window.tscn" id="1_m3shg"]
 [ext_resource type="Resource" uid="uid://d34cm46rn6013" path="res://resources/sushi_types/Nigiri.tres" id="2_hstws"]
+[ext_resource type="Resource" uid="uid://dm6ntnw3mwtuc" path="res://resources/ingredients/Maguro.tres" id="3_cygly"]
 [ext_resource type="Texture2D" uid="uid://dk5xb47whxrea" path="res://assets/sushi/sushi_type.png" id="3_i65a4"]
+[ext_resource type="PackedScene" uid="uid://cg1uksjnl13th" path="res://scenes/cook/ingredient_choose_window/list_window.tscn" id="5_ahm5u"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ahm5u"]
 atlas = ExtResource("3_i65a4")
 region = Rect2(0, 0, 64, 64)
 
-[node name="Cook" type="Node2D" node_paths=PackedStringArray("sushi_type_title_button", "sushi_type_choose_window")]
+[node name="Cook" type="Node2D" node_paths=PackedStringArray("sushi_type_title_button", "sushi_type_choose_window", "ingredient_title_button", "ingredient_choose_window")]
 script = ExtResource("1_ahm5u")
 sushi_type = ExtResource("2_hstws")
 sushi_type_title_button = NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button")
 sushi_type_choose_window = NodePath("CanvasLayer/SushiTypeChooseWindow")
+ingredient = ExtResource("3_cygly")
+ingredient_title_button = NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button2")
+ingredient_choose_window = NodePath("CanvasLayer/IngredientChooseWindow")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -64,8 +69,17 @@ layout_mode = 2
 text = "握壽司"
 icon = SubResource("AtlasTexture_ahm5u")
 
+[node name="Button2" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "鮪魚"
+
 [node name="SushiTypeChooseWindow" parent="CanvasLayer" instance=ExtResource("1_m3shg")]
 visible = false
 
+[node name="IngredientChooseWindow" parent="CanvasLayer" instance=ExtResource("5_ahm5u")]
+visible = false
+
 [connection signal="button_up" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button" to="CanvasLayer/SushiTypeChooseWindow" method="show"]
+[connection signal="button_up" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button2" to="CanvasLayer/IngredientChooseWindow" method="show"]
 [connection signal="confirm" from="CanvasLayer/SushiTypeChooseWindow" to="." method="_on_sushi_type_choose_window_confirm"]
+[connection signal="confirm" from="CanvasLayer/IngredientChooseWindow" to="." method="_on_ingredient_choose_window_confirm"]

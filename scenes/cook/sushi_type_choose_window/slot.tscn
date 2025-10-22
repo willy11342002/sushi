@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctr002j5xqidt"]
 
-[ext_resource type="Script" uid="uid://cmsn4rc6ox1na" path="res://scenes/cook/sushi_type_choose_window/scripts/sushi_type_slot.gd" id="1_hjgdv"]
-[ext_resource type="Texture2D" uid="uid://5jpgfs0y32qe" path="res://addons/game_template/assets/sprites/select.png" id="2_7fjqs"]
-[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="3_g5hs6"]
+[ext_resource type="Script" uid="uid://cy4qlvh8kkviu" path="res://addons/game_template/utils/list_select_window/slot.gd" id="1_5kfde"]
+[ext_resource type="Texture2D" uid="uid://5jpgfs0y32qe" path="res://addons/game_template/assets/sprites/select.png" id="2_8326r"]
+[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="3_qwdm6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ysrgc"]
 font_size = 24
@@ -12,16 +12,16 @@ font_color = Color(0.415686, 0.345098, 0.290196, 1)
 offset_right = 302.0
 offset_bottom = 48.0
 theme_override_constants/margin_right = 8
-script = ExtResource("1_hjgdv")
-hover_rect = NodePath("PanelContainer/NinePatchRect")
+script = ExtResource("1_5kfde")
+hover_rect = NodePath("PanelContainer/HoverRect")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 2
 
-[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
+[node name="HoverRect" type="NinePatchRect" parent="PanelContainer"]
 visible = false
 layout_mode = 2
-texture = ExtResource("2_7fjqs")
+texture = ExtResource("2_8326r")
 patch_margin_left = 8
 patch_margin_top = 9
 patch_margin_right = 8
@@ -45,7 +45,7 @@ label_settings = SubResource("LabelSettings_ysrgc")
 horizontal_alignment = 1
 
 [node name="TrackResource" type="Node" parent="PanelContainer/MarginContainer/HBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
-script = ExtResource("3_g5hs6")
+script = ExtResource("3_qwdm6")
 resource_node = NodePath("../../../../..")
 resource_attribute = "resource_name"
 target_node = NodePath("..")

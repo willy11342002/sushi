@@ -1,12 +1,32 @@
 key,en,zh_TW
+
+# Sushi Types,,
 Gunkan,gunkan,軍艦
-GunKanDescription,"Gunkan sushi is a type of sushi where vinegared rice is wrapped with nori seaweed and topped with various loose or soft ingredients. Its name comes from its battleship-like appearance.\nThis design prevents toppings like salmon roe, sea urchin, and flying fish roe from falling off.",軍艦壽司是一種將醋飯用海苔圍起來，並在上方盛放各式鬆散或柔軟配料的壽司，因外型像軍艦而得名。\n這種設計能防止像鮭魚卵、海膽、飛魚卵等配料散落。
+GunkanDescription,"Gunkan sushi is a type of sushi where vinegared rice is wrapped with nori seaweed and topped with various loose or soft ingredients. Its name comes from its battleship-like appearance.\nThis design prevents toppings like salmon roe, sea urchin, and flying fish roe from falling off.",軍艦壽司是一種將醋飯用海苔圍起來，並在上方盛放各式鬆散或柔軟配料的壽司，因外型像軍艦而得名。\n這種設計能防止像鮭魚卵、海膽、飛魚卵等配料散落。
 Nigiri,nigiri,握壽司
 NigiriDescription,"Nigiri sushi is a classic type of sushi made by molding vinegared rice with seafood or other ingredients into a bite-sized piece.\nIt emphasizes the presentation of the \"main ingredient\" and is suitable for high-quality main ingredients.",握壽司是一種將醋飯與海鮮或其他食材捏製成一口大小的經典壽司。\n能夠突出「主食材」表現，適合高品質主料。
 NiriMaki,niri maki,壽司捲
 NiriMakiDescription,"Niri Maki is a type of sushi where vinegared rice and ingredients are placed on nori seaweed and then rolled up with a bamboo mat, allowing for a variety of ingredients to be enjoyed at once.",壽司捲是一種將醋飯和配料放在海苔上，再用竹簾捲起的壽司，可以一次享受多種食材。
 Temaki,temaki,手卷
 TemakiDescription,"Temaki is a type of sushi where vinegared rice and ingredients (such as seafood and vegetables) are placed on a crispy sheet of nori and rolled into a cone shape, making it easy to hold and eat with your hands.\nIt emphasizes the original flavors of the ingredients and the crispiness of the nori, and should be enjoyed fresh for the best taste.",手捲特色是將醋飯、配料（如海鮮、蔬菜等）放在烤酥脆的海苔上，並以錐形方式捲起，方便用手拿取食用。\n它強調食材的原味與海苔的香脆口感，需趁新鮮立即品嚐以享受最佳風味。
+
+# Sushi Ingredients,,
+Maguro,maguro,鮪魚
+MaguroDescription,"Maguro is a type of large, migratory pelagic fish that is loved for its firm texture in the lean meat portion and rich, delicate flavor in the fatty portion.",鮪魚是一種是一群大型的近海洄游魚類，因其瘦肉部分爽脆；肥肉部分油脂豐富，口感細膩而深受喜愛。
+Salmon,salmon,鮭魚
+SalmonDescription,"Salmon is a popular fish used in sushi, known for its rich flavor and creamy texture. It is commonly found in nigiri and sashimi.",鮭魚是一種常用於壽司的魚類，以其濃郁的風味和奶油般的口感而聞名。常見於握壽司或生魚片。
+Uni,uni,海膽
+UniDescription,"The sea urchin is renowned as the treasure of the sea, with a sweet taste and a delicate, melt-in-your-mouth texture.",海膽被譽為「海中珍寶」，味道甘甜、口感細膩，入口即化。
+Scallop,scallop,干貝
+ScallopDescription,"Scallops are known for their delicate texture and sweet, briny flavor, making them suitable for both raw consumption and quick cooking to retain tenderness.",干貝以其細緻彈嫩和明顯的海味甘甜著稱，適合生食或高溫快煮以保留嫩度。
+Eel,eel,鰻魚
+EelDescription,"Eel is known for its rich, fatty, and melt-in-your-mouth texture; freshwater eel is fattier and more flavorful, while saltwater eel is lighter.\nKey cooking points include removing the fishy smell, controlling the cooking time, and using sweet or sour sauces to balance the fat.",鰻魚以其油潤、濃郁且入口綿密的肉質著稱；淡水鰻較肥、風味重，海鰻較清爽。\n烹調重點是去腥、適度火候與善用甜醬或酸味來平衡油脂。
+Avocado,avocado,酪梨
+AvocadoDescription,"Avocado is known for its creamy, buttery texture, mild and versatile flavor, and nutritional profile rich in monounsaturated fats and fiber.",酪梨的特點是其綿密奶油般的口感、溫和且易搭配的風味，以及豐富單元不飽和脂肪與纖維的營養特性。
+Cucumber,cucumber,黃瓜
+CucumberDescription,"Cucumber is known for its high water content, refreshing crunch, and low calorie count, making it suitable as a salad or refreshing side dish; when handling, be sure to remove any bitterness and store quickly to maintain crispness and flavor.",黃瓜以高含水、清爽脆口與低熱量著稱，適合作為涼拌或清爽配菜，處理時注意去除苦味與儘快保存以保脆度與風味。
+
+# Menu and Settings,,
 StartGame,Start Game,開始遊戲
 Settings,Settings,設定
 Credit,Credit,製作團隊

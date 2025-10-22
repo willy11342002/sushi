@@ -1,14 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bafi6sjsocpc3"]
+[gd_scene load_steps=11 format=3 uid="uid://cg1uksjnl13th"]
 
-[ext_resource type="Script" uid="uid://brepkyfovi6xs" path="res://scenes/cook/sushi_type_choose_window/scripts/sushi_type_choose_window.gd" id="1_4ljvf"]
-[ext_resource type="Resource" uid="uid://dnaj1y6ggaprq" path="res://resources/sushi_types/Gunkan.tres" id="2_1lef3"]
-[ext_resource type="PackedScene" uid="uid://ctr002j5xqidt" path="res://scenes/cook/sushi_type_choose_window/sushi_type_slot.tscn" id="2_q3fk6"]
-[ext_resource type="Resource" uid="uid://d34cm46rn6013" path="res://resources/sushi_types/Nigiri.tres" id="3_h4ogk"]
-[ext_resource type="Resource" uid="uid://budx5c74c8f2n" path="res://resources/sushi_types/NiriMaki.tres" id="4_8mj2y"]
-[ext_resource type="Resource" uid="uid://bi4c76gn6xv62" path="res://resources/sushi_types/Temaki.tres" id="5_i2ut0"]
-[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="7_5vbnu"]
+[ext_resource type="Script" uid="uid://btlo0riyhwth5" path="res://addons/game_template/utils/list_select_window/list_select_window.gd" id="1_tfp0p"]
+[ext_resource type="PackedScene" uid="uid://d2c6fkminvmm3" path="res://scenes/cook/ingredient_choose_window/slot.tscn" id="2_2pbls"]
+[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="2_m54ed"]
+[ext_resource type="Resource" uid="uid://dm6ntnw3mwtuc" path="res://resources/ingredients/Maguro.tres" id="3_1qgca"]
+[ext_resource type="Resource" uid="uid://cbjmjh82mmcm4" path="res://resources/ingredients/Avocado.tres" id="3_q7mqd"]
+[ext_resource type="Resource" uid="uid://2447cjdj1w0g" path="res://resources/ingredients/Salmon.tres" id="4_4c1oc"]
+[ext_resource type="Resource" uid="uid://cnnj8a1s2kjy7" path="res://resources/ingredients/Cucumber.tres" id="4_umxya"]
+[ext_resource type="Resource" uid="uid://bcakrenhg1kfr" path="res://resources/ingredients/Uni.tres" id="5_e17bc"]
+[ext_resource type="Resource" uid="uid://bts4nby5uaeiu" path="res://resources/ingredients/Eel.tres" id="5_qluuh"]
+[ext_resource type="Resource" uid="uid://dloomptsxd2gv" path="res://resources/ingredients/Scallop.tres" id="8_dyavy"]
 
-[node name="SushiTypeChooseWindow" type="Control" node_paths=PackedStringArray("loader", "sushi_types_container")]
+[node name="IngredientChooseWindow" type="Control" node_paths=PackedStringArray("slot_container", "loader")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -17,13 +20,14 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_4ljvf")
-sushi_type_slot = ExtResource("2_q3fk6")
+size_flags_vertical = 0
+script = ExtResource("1_tfp0p")
+slot = ExtResource("2_2pbls")
+slot_container = NodePath("PanelContainer/VBoxContainer/HBoxContainer/MarginContainer2/ScrollContainer/SlotContainer")
 loader = NodePath("ResourcePreloader")
-sushi_types_container = NodePath("PanelContainer/VBoxContainer/HBoxContainer/MarginContainer2/ScrollContainer/SushiTypeContainer")
 
 [node name="ResourcePreloader" type="ResourcePreloader" parent="."]
-resources = [PackedStringArray("Gunkan", "Nigiri", "NiriMaki", "Temaki"), [ExtResource("2_1lef3"), ExtResource("3_h4ogk"), ExtResource("4_8mj2y"), ExtResource("5_i2ut0")]]
+resources = [PackedStringArray("Avocado", "Cucumber", "Eel", "Maguro", "Salmon", "Scallop", "Uni"), [ExtResource("3_q7mqd"), ExtResource("4_umxya"), ExtResource("5_qluuh"), ExtResource("3_1qgca"), ExtResource("4_4c1oc"), ExtResource("8_dyavy"), ExtResource("5_e17bc")]]
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(400, 200)
@@ -58,7 +62,7 @@ theme_override_constants/margin_bottom = 8
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="SushiTypeContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer2/ScrollContainer"]
+[node name="SlotContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer2/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -78,23 +82,10 @@ layout_mode = 2
 horizontal_alignment = 1
 
 [node name="TrackResource" type="Node" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/TitleLabel" node_paths=PackedStringArray("resource_node", "target_node")]
-script = ExtResource("7_5vbnu")
+script = ExtResource("2_m54ed")
 resource_node = NodePath("../../../../../../..")
 resource_attribute = "resource_name"
 target_node = NodePath("..")
-metadata/_custom_type_script = "uid://cgj56mo7eaglw"
-
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="TrackResource2" type="Node" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/TextureRect" node_paths=PackedStringArray("resource_node", "target_node")]
-script = ExtResource("7_5vbnu")
-resource_node = NodePath("../../../../../../..")
-resource_attribute = "texture"
-target_node = NodePath("..")
-target_attribute = "texture"
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
 [node name="DescriptionLabel" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
@@ -104,7 +95,7 @@ size_flags_vertical = 3
 autowrap_mode = 3
 
 [node name="TrackResource3" type="Node" parent="PanelContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/DescriptionLabel" node_paths=PackedStringArray("resource_node", "target_node")]
-script = ExtResource("7_5vbnu")
+script = ExtResource("2_m54ed")
 resource_node = NodePath("../../../../../../..")
 resource_attribute = "description"
 target_node = NodePath("..")

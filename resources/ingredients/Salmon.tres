@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://2447cjdj1w0g"]
+
+[ext_resource type="Script" uid="uid://uo0mv2gxrfxk" path="res://scripts/resources/ingredient.gd" id="1_lwer8"]
+
+[resource]
+resource_name = "Salmon"
+script = ExtResource("1_lwer8")
+info = ""
+metadata/_custom_type_script = "uid://uo0mv2gxrfxk"
