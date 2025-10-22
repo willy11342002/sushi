@@ -1,16 +1,10 @@
 class_name SushiTypeChooseWindow extends Control
 
-@export_group("Scenes")
 @export var sushi_type_slot: PackedScene
-@export var next_scene: Node
-@export var prev_scene: Node
 
 @export_group("UI Elements")
 @export var loader: ResourcePreloader
 @export var sushi_types_container: Node
-@export var texture_rect: TextureRect
-@export var title_label: Label
-@export var description_label: Label
 
 signal confirm
 signal res_changed(res)

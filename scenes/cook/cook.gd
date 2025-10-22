@@ -7,11 +7,11 @@ extends Node2D
 
 
 func _ready() -> void:
-	sushi_type_title_button.text = sushi_type.type_name
+	sushi_type_title_button.text = sushi_type.resource_name
 	sushi_type_title_button.icon = sushi_type.texture
 
 
 func _on_sushi_type_choose_window_confirm() -> void:
 	sushi_type = sushi_type_choose_window._select_slot.sushi_type
-	sushi_type_title_button.text = sushi_type.type_name
+	sushi_type_title_button.text = sushi_type.resource_name
 	sushi_type_title_button.icon = sushi_type.texture

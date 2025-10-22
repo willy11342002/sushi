@@ -12,7 +12,7 @@ region = Rect2(0, 0, 64, 64)
 [node name="Cook" type="Node2D" node_paths=PackedStringArray("sushi_type_title_button", "sushi_type_choose_window")]
 script = ExtResource("1_ahm5u")
 sushi_type = ExtResource("2_hstws")
-sushi_type_title_button = NodePath("CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Button")
+sushi_type_title_button = NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button")
 sushi_type_choose_window = NodePath("CanvasLayer/SushiTypeChooseWindow")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -55,7 +55,11 @@ layout_mode = 2
 layout_mode = 2
 text = "選擇壽司種類:"
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
 layout_mode = 2
 text = "握壽司"
 icon = SubResource("AtlasTexture_ahm5u")
@@ -63,5 +67,5 @@ icon = SubResource("AtlasTexture_ahm5u")
 [node name="SushiTypeChooseWindow" parent="CanvasLayer" instance=ExtResource("1_m3shg")]
 visible = false
 
-[connection signal="button_up" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Button" to="CanvasLayer/SushiTypeChooseWindow" method="show"]
+[connection signal="button_up" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button" to="CanvasLayer/SushiTypeChooseWindow" method="show"]
 [connection signal="confirm" from="CanvasLayer/SushiTypeChooseWindow" to="." method="_on_sushi_type_choose_window_confirm"]

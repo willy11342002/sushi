@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://ctr002j5xqidt"]
 
-[ext_resource type="Script" uid="uid://cmsn4rc6ox1na" path="res://scenes/cook/sushi_type_choose_window/sushi_type_slot.gd" id="1_hjgdv"]
+[ext_resource type="Script" uid="uid://cmsn4rc6ox1na" path="res://scenes/cook/sushi_type_choose_window/scripts/sushi_type_slot.gd" id="1_hjgdv"]
 [ext_resource type="Texture2D" uid="uid://5jpgfs0y32qe" path="res://addons/game_template/assets/sprites/select.png" id="2_7fjqs"]
 [ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="3_g5hs6"]
 
@@ -47,7 +47,7 @@ horizontal_alignment = 1
 [node name="TrackResource" type="Node" parent="PanelContainer/MarginContainer/HBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("3_g5hs6")
 resource_node = NodePath("../../../../..")
-resource_attribute = "type_name"
+resource_attribute = "resource_name"
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 

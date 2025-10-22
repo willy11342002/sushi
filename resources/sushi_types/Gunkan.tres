@@ -8,10 +8,9 @@ atlas = ExtResource("2_hccat")
 region = Rect2(64, 0, 64, 64)
 
 [resource]
+resource_name = "Gunkan"
 script = ExtResource("1_xvy7s")
 texture = SubResource("AtlasTexture_3tbl3")
-type_name = "Gunkan"
-description = "GunKanDescription"
 info = "遊戲定位：強調「配料堆疊」和視覺價值（如魚子、沙拉）。
 效果機制：副食材權重高（副食材貢獻係數 = 1.3）、視覺最終效果係數=1.3；
 製作特性：微遊戲為「配料排列/堆疊」小遊戲（拖放 / 選序），擺放正確獲得額外美觀分。
