@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CookingMethod" load_steps=2 format=3 uid="uid://bjefy3vddhbll"]
+
+[ext_resource type="Script" uid="uid://cg7yxdt4tqoyr" path="res://scripts/resources/cooking_method.gd" id="1_rdb5g"]
+
+[resource]
+resource_name = "Pickled"
+script = ExtResource("1_rdb5g")
+info = "定義：用鹽、糖、酸（醋、檸檬）、香料或發酵微生物處理食材，使其入味、變色或保藏。範圍包含乾鹽醃、鹽水滷（brine）、酸漬（pickling）、風乾醃（如prosciutto）、發酵（如泡菜）、以酸「熟成」的ceviche等。
+對食材的影響：味道被滲入（鹹、酸、甜、香料）、質地可能變緊實或變軟（鹽會脫水、酸會使蛋白凝固）、延長保存期（取決於方法與鹽酸濃度）。
+適合食材：魚（gravlax、醃鮭魚）、肉類、蔬果（醃黃瓜、泡菜）、海鮮（ceviche屬酸醃）。
+常見風味/口感：味道濃縮、酸鹹或發酵香氣，口感從脆到緻密不等。
+衛生/安全要點：鹽或酸能抑制多數病原，但未必能完全殺死所有病菌或寄生蟲；低溫與清潔操作仍重要；冷醃（低溫）與發酵需控制pH、鹽度與溫度避免不良微生物繁殖。"
+metadata/_custom_type_script = "uid://cg7yxdt4tqoyr"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="CookingMethod" load_steps=2 format=3 uid="uid://ddsgt84r8hg5h"]
+
+[ext_resource type="Script" uid="uid://cg7yxdt4tqoyr" path="res://scripts/resources/cooking_method.gd" id="1_v6rsi"]
+
+[resource]
+resource_name = "Fried"
+script = ExtResource("1_v6rsi")
+info = "定義：利用熱油快速加熱料理，可分為淺炸（pan-fry / sauté）與深炸（deep-fry）。
+對食材的影響：在高溫油中會出現脆皮（油炸）和美拉德反應，內部如果控制得當可保持多汁，外層酥脆口感明顯；高脂食材會更顯香氣。
+適合食材：蔬菜、海鮮（天婦羅、炸蝦）、雞肉（唐揚げ、炸雞）、炸魚、薯條等。
+常見風味/口感：香脆、油香、口感對比（脆皮 vs 柔軟內裡）；風味豐富但油脂感較重。
+衛生/操作要點：控制油溫（一般170–190°C）避免食材吸油或炸焦；確保內部熟透以避免食安風險；處理熱油要小心防燙，並注意油反覆使用會產生分解物（致化學風險）且影響風味與健康。"
+metadata/_custom_type_script = "uid://cg7yxdt4tqoyr"

@@ -12,6 +12,7 @@ var _select_slot: Slot
 func _ready() -> void:
 	for res_name in loader.get_resource_list():
 		var resource: Resource = loader.get_resource(res_name)
+		print(res_name, resource.resource_name)
 		var slot_instance: Slot = slot.instantiate() as Slot
 		slot_container.add_child(slot_instance)
 		slot_instance.setup(resource)

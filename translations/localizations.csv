@@ -26,6 +26,20 @@ AvocadoDescription,"Avocado is known for its creamy, buttery texture, mild and v
 Cucumber,cucumber,黃瓜
 CucumberDescription,"Cucumber is known for its high water content, refreshing crunch, and low calorie count, making it suitable as a salad or refreshing side dish; when handling, be sure to remove any bitterness and store quickly to maintain crispness and flavor.",黃瓜以高含水、清爽脆口與低熱量著稱，適合作為涼拌或清爽配菜，處理時注意去除苦味與儘快保存以保脆度與風味。
 
+# Cooking Methods,,
+Raw,raw,生食
+RawDescription,"Raw food preserves the original flavor and nutritional value of the ingredients, allowing you to easily taste the freshness of the ingredients.",生食能夠保留食材的原始風味與營養價值，容易品嘗到食材本身的鮮甜。
+Aburi,aburi,炙燒
+AburiDescription,"Aburi is a cooking technique that involves lightly searing the surface of the ingredients with an open flame to create a caramelized, flavorful exterior while retaining the tenderness and original taste inside, resulting in a contrast of textures: crispy outside, tender inside / charred outside, raw inside.",炙燒是透過輕微的火烤使得食材表面焦香、褐化提升香氣與風味；內部仍保留嫩度與原味，產生口感上的「外脆內嫩／外焦內生」對比。
+SaltGrilled,salt grilled,鹽烤
+SaltGrilledDescription,"Salt grilling is a technique that directly seasons food with salt and grills it to bring out the natural flavors of the ingredients. Salt helps to dehydrate and slightly firm the surface, aiding in the formation of a crispy or slightly dry outer layer, suppressing fishy odors and highlighting the original taste.",鹽烤是一種以鹽直接調味並透過烤熱帶出食材本味的技法，鹽能脫水並使表面略緊實，有助於形成脆皮或略乾的外層，能抑制腥味並突顯原味。
+Pickled,pickled,醃製
+PickledDescription,"Pickling is a method of preserving food by anaerobic fermentation in brine or immersion in vinegar, which imparts a distinctive sour flavor.",醃製是一種通過在鹽水中厭氧發酵或浸泡在醋中來保存食物的方法，賦予其獨特的酸味。
+Fried,fried,油炸
+FriedDescription,"Frying is a cooking method that involves submerging food in hot oil, creating a crispy exterior while keeping the inside moist.",油炸是一種將食物浸入熱油中烹調的方法，能夠形成酥脆的外皮，同時保持內部的濕潤。
+Smoked,smoked,煙燻
+SmokedDescription,"Smoking is a method of flavoring, cooking, or preserving food by exposing it to smoke from burning or smoldering material, usually wood.",煙燻是一種通過將食物暴露在燃燒或悶燒材料（通常是木材）產生的煙霧中來調味、烹調或保存食物的方法。
+
 # Menu and Settings,,
 StartGame,Start Game,開始遊戲
 Settings,Settings,設定
