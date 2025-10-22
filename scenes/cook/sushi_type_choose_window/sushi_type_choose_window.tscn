@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bafi6sjsocpc3"]
+[gd_scene load_steps=8 format=3 uid="uid://bafi6sjsocpc3"]
 
 [ext_resource type="Script" uid="uid://brepkyfovi6xs" path="res://scenes/cook/sushi_type_choose_window/sushi_type_choose_window.gd" id="1_4ljvf"]
 [ext_resource type="Resource" uid="uid://dnaj1y6ggaprq" path="res://resources/sushi_types/Gunkan.tres" id="2_1lef3"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://d34cm46rn6013" path="res://resources/sushi_types/Nigiri.tres" id="3_h4ogk"]
 [ext_resource type="Resource" uid="uid://budx5c74c8f2n" path="res://resources/sushi_types/NiriMaki.tres" id="4_8mj2y"]
 [ext_resource type="Resource" uid="uid://bi4c76gn6xv62" path="res://resources/sushi_types/Temaki.tres" id="5_i2ut0"]
+[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="7_5vbnu"]
 
 [node name="SushiTypeChooseWindow" type="Control" node_paths=PackedStringArray("loader", "sushi_types_container", "texture_rect", "title_label", "description_label")]
 layout_mode = 3
@@ -79,16 +80,38 @@ layout_mode = 2
 layout_mode = 2
 horizontal_alignment = 1
 
+[node name="TrackResource" type="Node" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/TitleLabel" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_5vbnu")
+resource_node = NodePath("../../../../../../..")
+resource_attribute = "type_name"
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
 [node name="TextureRect" type="TextureRect" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
+
+[node name="TrackResource2" type="Node" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/TextureRect" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_5vbnu")
+resource_node = NodePath("../../../../../../..")
+resource_attribute = "texture"
+target_node = NodePath("..")
+target_attribute = "texture"
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
 [node name="DescriptionLabel" type="Label" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_vertical = 3
 autowrap_mode = 3
+
+[node name="TrackResource3" type="Node" parent="MainContainer/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/DescriptionLabel" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_5vbnu")
+resource_node = NodePath("../../../../../../..")
+resource_attribute = "description"
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
 [node name="MarginContainer" type="MarginContainer" parent="MainContainer/VBoxContainer"]
 layout_mode = 2

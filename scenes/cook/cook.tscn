@@ -55,9 +55,6 @@ layout_mode = 2
 layout_mode = 2
 text = "選擇壽司種類:"
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
-layout_mode = 2
-
 [node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 text = "握壽司"
@@ -66,5 +63,5 @@ icon = SubResource("AtlasTexture_ahm5u")
 [node name="SushiTypeChooseWindow" parent="CanvasLayer" instance=ExtResource("1_m3shg")]
 visible = false
 
-[connection signal="button_up" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Button" to="." method="_on_sushi_type_choose_button_pressed"]
+[connection signal="button_up" from="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer/Button" to="CanvasLayer/SushiTypeChooseWindow" method="show"]
 [connection signal="confirm" from="CanvasLayer/SushiTypeChooseWindow" to="." method="_on_sushi_type_choose_window_confirm"]

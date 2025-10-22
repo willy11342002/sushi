@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cryc8dxs5sjup"]
+[gd_scene load_steps=5 format=3 uid="uid://cryc8dxs5sjup"]
 
 [ext_resource type="Script" uid="uid://b0cltqj0auydc" path="res://addons/game_template/save_load_system/scripts/save_slot.gd" id="1_ysrgc"]
 [ext_resource type="Texture2D" uid="uid://5jpgfs0y32qe" path="res://addons/game_template/assets/sprites/select.png" id="2_1u80p"]
+[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="3_mran7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ysrgc"]
 font_size = 36
@@ -44,8 +45,26 @@ layout_mode = 2
 text = "test"
 label_settings = SubResource("LabelSettings_ysrgc")
 
+[node name="ResourceAttributeTracker" type="Node" parent="PanelContainer/MarginContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "format_node", "target_node")]
+script = ExtResource("3_mran7")
+resource_node = NodePath("../../../../..")
+resource_attribute = "file_name"
+format_node = NodePath("../../../../..")
+format_func_name = "_format_title"
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
 [node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Last Updated: "
+
+[node name="ResourceAttributeTracker" type="Node" parent="PanelContainer/MarginContainer/VBoxContainer/Label2" node_paths=PackedStringArray("resource_node", "format_node", "target_node")]
+script = ExtResource("3_mran7")
+resource_node = NodePath("../../../../..")
+resource_attribute = "modified_time"
+format_node = NodePath("../../../../..")
+format_func_name = "_format_time"
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
 [connection signal="gui_input" from="PanelContainer" to="." method="_on_gui_input"]

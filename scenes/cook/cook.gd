@@ -10,9 +10,6 @@ func _ready() -> void:
 	sushi_type_title_button.text = sushi_type.type_name
 	sushi_type_title_button.icon = sushi_type.texture
 
-func _on_sushi_type_choose_button_pressed() -> void:
-	sushi_type_choose_window.visible = true
-
 
 func _on_sushi_type_choose_window_confirm() -> void:
 	sushi_type = sushi_type_choose_window._select_slot.sushi_type

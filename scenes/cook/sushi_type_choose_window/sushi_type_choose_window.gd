@@ -13,6 +13,7 @@ class_name SushiTypeChooseWindow extends Control
 @export var description_label: Label
 
 signal confirm
+signal res_changed(res)
 var _select_slot: SushiTypeSlot
 
 
@@ -20,13 +21,13 @@ func _ready() -> void:
 	for res_name in loader.get_resource_list():
 		var resource: SushiType = loader.get_resource(res_name) as SushiType
 		var slot: SushiTypeSlot = sushi_type_slot.instantiate() as SushiTypeSlot
-		slot.set_sushi_type(resource)
+		sushi_types_container.add_child(slot)
+		slot.setup(resource)
 		slot.slot_select.connect(_on_slot_select)
 		slot.slot_double_click.connect(func(s):
 			_on_slot_select(s)
 			_on_confirm_button_pressed()
 		)
-		sushi_types_container.add_child(slot)
 
 
 func _on_slot_select(slot: SushiTypeSlot) -> void:
@@ -34,10 +35,8 @@ func _on_slot_select(slot: SushiTypeSlot) -> void:
 		_select_slot.unselect()
 
 	_select_slot = slot
+	res_changed.emit(_select_slot.sushi_type)
 
-	texture_rect.texture = _select_slot.sushi_type.texture
-	title_label.text = _select_slot.sushi_type.type_name
-	description_label.text = _select_slot.sushi_type.description
 
 func _on_confirm_button_pressed() -> void:
 	confirm.emit()

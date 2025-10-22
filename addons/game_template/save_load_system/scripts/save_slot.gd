@@ -4,6 +4,7 @@ class_name SaveSlot extends Control
 @export var last_updated_label: Label
 @export var hover_rect: Control
 
+signal res_changed(res)
 signal slot_select(slot: SaveSlot)
 signal slot_double_click(slot: SaveSlot)
 var file_name: String
@@ -11,12 +12,11 @@ var modified_time: int
 var full_path: String
 
 func setup(_file_name: String, _modified_time: int, _full_path: String) -> void:
-	title_label.text = _file_name.replace(".tres", "")
-	last_updated_label.text = "Last Updated: " + Time.get_datetime_string_from_unix_time(_modified_time, true)
-
 	full_path = _full_path
 	file_name = _file_name
 	modified_time = _modified_time
+	res_changed.emit(self)
+
 
 func select() -> void:
 	slot_select.emit(self)
@@ -24,6 +24,14 @@ func select() -> void:
 
 func unselect() -> void:
 	hover_rect.hide()
+
+
+func _format_title(file_name: String) -> String:
+	return file_name.replace(".res", "")
+
+func _format_time(unix_time: int) -> String:
+	var dt: String = Time.get_datetime_string_from_unix_time(unix_time)
+	return "Last Updated: " + dt
 
 
 func _on_gui_input(event: InputEvent) -> void:

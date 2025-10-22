@@ -1,19 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctr002j5xqidt"]
+[gd_scene load_steps=5 format=3 uid="uid://ctr002j5xqidt"]
 
 [ext_resource type="Script" uid="uid://cmsn4rc6ox1na" path="res://scenes/cook/sushi_type_choose_window/sushi_type_slot.gd" id="1_hjgdv"]
 [ext_resource type="Texture2D" uid="uid://5jpgfs0y32qe" path="res://addons/game_template/assets/sprites/select.png" id="2_7fjqs"]
+[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="3_g5hs6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ysrgc"]
 font_size = 24
 font_color = Color(0.415686, 0.345098, 0.290196, 1)
 
-[node name="SushiTypeSlot" type="MarginContainer" node_paths=PackedStringArray("title_label", "hover_rect")]
-custom_minimum_size = Vector2(0, 70)
+[node name="SushiTypeSlot" type="MarginContainer" node_paths=PackedStringArray("hover_rect")]
 offset_right = 302.0
-offset_bottom = 70.0
+offset_bottom = 48.0
 theme_override_constants/margin_right = 8
 script = ExtResource("1_hjgdv")
-title_label = NodePath("PanelContainer/MarginContainer/HBoxContainer/Label")
 hover_rect = NodePath("PanelContainer/NinePatchRect")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -44,5 +43,12 @@ layout_mode = 2
 text = "test"
 label_settings = SubResource("LabelSettings_ysrgc")
 horizontal_alignment = 1
+
+[node name="TrackResource" type="Node" parent="PanelContainer/MarginContainer/HBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("3_g5hs6")
+resource_node = NodePath("../../../../..")
+resource_attribute = "type_name"
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
 [connection signal="gui_input" from="PanelContainer" to="." method="_on_gui_input"]
