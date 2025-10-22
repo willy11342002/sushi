@@ -6,6 +6,7 @@ extends CanvasLayer
 @export_file var prev_scene: String
 @export var input_dialog_scene: PackedScene
 @export var confirm_dialog_scene: PackedScene
+@export var alert_dialog_scene: PackedScene
 
 @export_group("MainContainer")
 @export var save_slot: PackedScene
@@ -45,14 +46,21 @@ func _load_save_list_from_disk() -> void:
 	for file_name in file_names:
 		var modified_time: int = FileAccess.get_modified_time(_save_path + file_name)
 		var slot: SaveSlot = save_slot.instantiate()
-		slot.setup(file_name, modified_time, _save_path + file_name)
 		save_list.add_child(slot)
-		slot.slot_select.connect(_on_change_selected_slot)
+		slot.setup(file_name, modified_time, _save_path + file_name)
+		slot.slot_select.connect(_on_slot_select)
+		slot.slot_double_click.connect(func(s):
+			_on_slot_select(s)
+			if mode == "Load":
+				_on_load_button_up()
+			elif mode == "Save":
+				_on_save_button_up()
+		)
 
-	_on_change_selected_slot(null)
+	_on_slot_select(null)
 
 
-func _on_change_selected_slot(slot: SaveSlot) -> void:
+func _on_slot_select(slot: SaveSlot) -> void:
 	if _select_slot != null:
 		_select_slot.unselect()
 
@@ -82,12 +90,20 @@ func _on_create_button_confirm(title: String) -> void:
 	slot.setup(data.title, data.modified_time, data.file_name)
 	save_list.add_child(slot)
 	save_list.move_child(slot, 0)
-	slot.slot_select.connect(_on_change_selected_slot)
+	slot.slot_select.connect(_on_slot_select)
+
+
+func _on_save_button_up() -> void:
+	Persistence.data.save_to_file(_select_slot.full_path)
+	var dialog: AlertDialog = alert_dialog_scene.instantiate() as AlertDialog
+	add_child(dialog)
+	dialog.show_dialog(func(): pass, "Game saved successfully!", "OK")
+
 
 func _on_delete_button_confirm():
 	OS.move_to_trash(ProjectSettings.globalize_path(_select_slot.full_path))
 	_select_slot.queue_free()
-	_on_change_selected_slot(null)
+	_on_slot_select(null)
 
 
 func _on_load_button_up():

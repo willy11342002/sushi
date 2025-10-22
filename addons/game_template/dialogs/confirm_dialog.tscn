@@ -54,10 +54,12 @@ alignment = 1
 
 [node name="ConfirmButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Confirm"
 
 [node name="CancelButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 text = "Cancel"
 
 [connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="PanelContainer" method="hide"]
