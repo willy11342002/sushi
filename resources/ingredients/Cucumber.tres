@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://cnnj8a1s2kjy7"]
-
-[ext_resource type="Script" uid="uid://uo0mv2gxrfxk" path="res://scripts/resources/ingredient.gd" id="1_8uunn"]
-
-[resource]
-resource_name = "Cucumber"
-script = ExtResource("1_8uunn")
-info = ""
-metadata/_custom_type_script = "uid://uo0mv2gxrfxk"

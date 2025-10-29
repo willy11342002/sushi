@@ -1,98 +1,127 @@
-[gd_scene load_steps=10 format=3 uid="uid://c7xpvnsugikgo"]
+[gd_scene load_steps=4 format=3 uid="uid://bp67nnbsn3gr6"]
 
-[ext_resource type="Script" uid="uid://brwo0i4b5aqy1" path="res://scenes/cook/cook.gd" id="1_ahm5u"]
-[ext_resource type="PackedScene" uid="uid://bafi6sjsocpc3" path="res://scenes/cook/sushi_type_choose_window/list_window.tscn" id="1_m3shg"]
-[ext_resource type="Resource" uid="uid://d34cm46rn6013" path="res://resources/sushi_types/Nigiri.tres" id="2_hstws"]
-[ext_resource type="Resource" uid="uid://dm6ntnw3mwtuc" path="res://resources/ingredients/Maguro.tres" id="3_cygly"]
-[ext_resource type="Texture2D" uid="uid://dk5xb47whxrea" path="res://assets/sushi/sushi_type.png" id="3_i65a4"]
-[ext_resource type="Resource" uid="uid://bkwlktnp4k175" path="res://resources/cooking_methods/Raw.tres" id="4_nta3s"]
-[ext_resource type="PackedScene" uid="uid://cg1uksjnl13th" path="res://scenes/cook/ingredient_choose_window/list_window.tscn" id="5_ahm5u"]
-[ext_resource type="PackedScene" uid="uid://5oqfl40v5284" path="res://scenes/cook/cooking_method_choose_window/list_window.tscn" id="7_6trwo"]
+[ext_resource type="Script" uid="uid://b5tcb5mfu5lsm" path="res://scenes/cook/scripts/cook.gd" id="1_m3shg"]
+[ext_resource type="PackedScene" uid="uid://v6avooyj7xdd" path="res://addons/game_template/utils/list_select_container/slot.tscn" id="6_qhcgi"]
+[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="7_omo6v"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahm5u"]
-atlas = ExtResource("3_i65a4")
-region = Rect2(0, 0, 64, 64)
-
-[node name="Cook" type="Node2D" node_paths=PackedStringArray("sushi_type_title_button", "sushi_type_choose_window", "ingredient_title_button", "ingredient_choose_window", "method_title_button", "method_choose_window")]
-script = ExtResource("1_ahm5u")
-sushi_type = ExtResource("2_hstws")
-sushi_type_title_button = NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button")
-sushi_type_choose_window = NodePath("CanvasLayer/SushiTypeChooseWindow")
-ingredient = ExtResource("3_cygly")
-ingredient_title_button = NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button2")
-ingredient_choose_window = NodePath("CanvasLayer/IngredientChooseWindow")
-method = ExtResource("4_nta3s")
-method_title_button = NodePath("CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button3")
-method_choose_window = NodePath("CanvasLayer/CookingMethodChooseWindow")
+[node name="Cook" type="Node2D" node_paths=PackedStringArray("main_container", "secondary_container")]
+script = ExtResource("1_m3shg")
+main_container = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/MainIngredient/ScrollContainer/MarginContainer/VBoxContainer")
+secondary_container = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient/ScrollContainer/MarginContainer/VBoxContainer")
+slot_scene = ExtResource("6_qhcgi")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Background" type="Panel" parent="CanvasLayer"]
-modulate = Color(0, 0, 0, 0.470588)
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
 
-[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/PanelContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(240, 320)
+layout_mode = 2
+current_tab = 0
+
+[node name="MainIngredient" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/MainIngredient"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/MainIngredient/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/MainIngredient/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SecondaryIngredient" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient/ScrollContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
 layout_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="AttributeTracker" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../..")
+resource_attribute = Array[String](["current_ingredient", "resource_name"])
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/PanelContainer/MarginContainer/VBoxContainer/VBoxContainer"]
+[node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/TextureRect" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../..")
+resource_attribute = Array[String](["current_ingredient", "texture"])
+target_node = NodePath("..")
+target_attribute = "texture"
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
-text = "選擇壽司種類:"
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
 
-[node name="GridContainer" type="GridContainer" parent="CanvasLayer/PanelContainer/MarginContainer"]
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
-columns = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+autowrap_mode = 3
 
-[node name="Button" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
+[node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/Label2" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../../..")
+resource_attribute = Array[String](["current_ingredient", "description"])
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(640, 0)
 layout_mode = 2
-text = "握壽司"
-icon = SubResource("AtlasTexture_ahm5u")
-
-[node name="Button2" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
-layout_mode = 2
-text = "鮪魚"
-
-[node name="Button3" type="Button" parent="CanvasLayer/PanelContainer/MarginContainer/GridContainer"]
-layout_mode = 2
-text = "生食"
-
-[node name="SushiTypeChooseWindow" parent="CanvasLayer" instance=ExtResource("1_m3shg")]
-visible = false
-
-[node name="IngredientChooseWindow" parent="CanvasLayer" instance=ExtResource("5_ahm5u")]
-visible = false
-
-[node name="CookingMethodChooseWindow" parent="CanvasLayer" instance=ExtResource("7_6trwo")]
-
-[connection signal="button_up" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button" to="CanvasLayer/SushiTypeChooseWindow" method="show"]
-[connection signal="button_up" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button2" to="CanvasLayer/IngredientChooseWindow" method="show"]
-[connection signal="button_up" from="CanvasLayer/PanelContainer/MarginContainer/GridContainer/Button3" to="CanvasLayer/CookingMethodChooseWindow" method="show"]
-[connection signal="confirm" from="CanvasLayer/SushiTypeChooseWindow" to="." method="_on_sushi_type_choose_window_confirm"]
-[connection signal="confirm" from="CanvasLayer/IngredientChooseWindow" to="." method="_on_ingredient_choose_window_confirm"]
-[connection signal="confirm" from="CanvasLayer/CookingMethodChooseWindow" to="." method="_on_method_choose_window_confirm"]

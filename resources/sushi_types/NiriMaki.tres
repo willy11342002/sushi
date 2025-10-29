@@ -15,4 +15,14 @@ info = "遊戲定位：強調「連鎖 / 組合」，適合做成套餐與快速
 效果機制：出餐速度加成（複雜度係數0.8、出餐速度係數1.2），且連續出同類鐵火捲可累積 chain bonus（每連續第 n 份 +2% 收入，最高 +10%）。
 製作特性：微遊戲為「節奏/多按鍵」操作（快速按按鈕以連接材料）。
 適合：鮪魚泥、蔬菜捲、辛味醬搭配。"
+main_ingredient_count = 3
+secondary_ingredient_count = 3
+total_ingredient_count = 3
+appearance = 1.0
+aroma = 1.0
+taste = 1.0
+appearance_weight = 1.0
+aroma_weight = 1.0
+taste_weight = 1.0
+complexity = 1.0
 metadata/_custom_type_script = "uid://c8e4t52uvijpg"

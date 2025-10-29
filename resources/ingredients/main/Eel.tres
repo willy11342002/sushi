@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://uo0mv2gxrfxk" path="res://scripts/resources/ingredient.gd" id="1_hpyo4"]
 
 [resource]
-resource_name = "Uni"
+resource_name = "Eel"
 script = ExtResource("1_hpyo4")
+type = "Main"
 info = ""
 metadata/_custom_type_script = "uid://uo0mv2gxrfxk"

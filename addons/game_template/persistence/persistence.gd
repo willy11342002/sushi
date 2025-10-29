@@ -14,7 +14,7 @@ func save_data():
 	data.save_to_disk()
 
 
-func load():
+func load_data():
 	for obj in get_tree().get_nodes_in_group("persistence"):
 		if obj.has_method("loads_data"):
 			obj.loads_data(data)

@@ -5,6 +5,8 @@ class_name SaveData extends Resource
 @export var file_name: String = ""
 @export var modified_time: int = 0
 
+@export var sushi_types: Array[SushiType] = []
+@export var ingredients: Array[Ingredient] = []
 
 static func create(_path: String, _title: String) -> SaveData:
 	var data = SaveData.new()

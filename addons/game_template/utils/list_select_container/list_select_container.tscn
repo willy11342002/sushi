@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://citbfbmtsk7mp"]
+
+[ext_resource type="Script" uid="uid://dc2viihqcyrrb" path="res://addons/game_template/utils/list_select_container/list_select_container.gd" id="1_cjrtb"]
+[ext_resource type="PackedScene" uid="uid://v6avooyj7xdd" path="res://addons/game_template/utils/list_select_container/slot.tscn" id="2_p1yoc"]
+
+[node name="ListSelectContainer" type="VBoxContainer"]
+script = ExtResource("1_cjrtb")
+slot = ExtResource("2_p1yoc")
