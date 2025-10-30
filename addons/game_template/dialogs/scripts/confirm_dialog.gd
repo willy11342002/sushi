@@ -1,5 +1,5 @@
 
-class_name ConfirmDialog extends CanvasLayer
+class_name ConfirmDialog extends Control
 
 
 @export var message_label: Label

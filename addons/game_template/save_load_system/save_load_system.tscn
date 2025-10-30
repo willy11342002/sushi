@@ -9,7 +9,7 @@
 [node name="SaveLoadSystem" type="CanvasLayer" node_paths=PackedStringArray("save_list", "load_button", "save_button", "create_button", "delete_button", "exit_button")]
 script = ExtResource("1_b6wie")
 mode = "Load"
-next_scene = "uid://c7xpvnsugikgo"
+next_scene = "uid://dv8dp2pjj8yed"
 prev_scene = "uid://vdg314f1160w"
 input_dialog_scene = ExtResource("2_rarvi")
 confirm_dialog_scene = ExtResource("3_hyrb3")

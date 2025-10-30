@@ -1,18 +1,27 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp67nnbsn3gr6"]
+[gd_scene load_steps=6 format=3 uid="uid://bp67nnbsn3gr6"]
 
 [ext_resource type="Script" uid="uid://b5tcb5mfu5lsm" path="res://scenes/cook/scripts/cook.gd" id="1_m3shg"]
+[ext_resource type="FontFile" uid="uid://clvhc8tbba0u3" path="res://addons/game_template/assets/fonts/Cubic-11-1.430/Cubic_11.ttf" id="4_i65a4"]
 [ext_resource type="PackedScene" uid="uid://v6avooyj7xdd" path="res://addons/game_template/utils/list_select_container/slot.tscn" id="6_qhcgi"]
 [ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="7_omo6v"]
 
-[node name="Cook" type="Node2D" node_paths=PackedStringArray("main_container", "secondary_container")]
+[sub_resource type="LabelSettings" id="LabelSettings_ahm5u"]
+font = ExtResource("4_i65a4")
+font_size = 24
+
+[node name="Cook" type="Node2D" node_paths=PackedStringArray("main_ingredient_container", "secondary_ingredient_container", "main_count_label_node", "secondary_count_label_node", "total_count_label_node")]
 script = ExtResource("1_m3shg")
-main_container = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/MainIngredient/ScrollContainer/MarginContainer/VBoxContainer")
-secondary_container = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient/ScrollContainer/MarginContainer/VBoxContainer")
+main_ingredient_container = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/MainIngredient/ScrollContainer/MarginContainer/MainIngredientContainer")
+secondary_ingredient_container = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient/ScrollContainer/MarginContainer/SecondaryIngredientContainer")
 slot_scene = ExtResource("6_qhcgi")
+main_count_label_node = NodePath("CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MainIngredientLabel")
+secondary_count_label_node = NodePath("CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondaryIngredientLabel")
+total_count_label_node = NodePath("CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TotalIngredientLabel")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+custom_minimum_size = Vector2(1100, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -25,6 +34,7 @@ theme_override_constants/margin_bottom = 32
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -51,7 +61,7 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/MainIngredient/ScrollContainer/MarginContainer"]
+[node name="MainIngredientContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/MainIngredient/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -71,7 +81,7 @@ theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient/ScrollContainer/MarginContainer"]
+[node name="SecondaryIngredientContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient/ScrollContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -79,49 +89,149 @@ size_flags_horizontal = 3
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 horizontal_alignment = 1
 
-[node name="AttributeTracker" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
+[node name="AttributeTracker" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
-resource_node = NodePath("../../../../../../../..")
+resource_node = NodePath("../../../../../../../../..")
 resource_attribute = Array[String](["current_ingredient", "resource_name"])
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/TextureRect" node_paths=PackedStringArray("resource_node", "target_node")]
+[node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TextureRect" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
-resource_node = NodePath("../../../../../../../..")
+resource_node = NodePath("../../../../../../../../..")
 resource_attribute = Array[String](["current_ingredient", "texture"])
 target_node = NodePath("..")
 target_attribute = "texture"
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
-[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 horizontal_scroll_mode = 0
 
-[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer"]
+[node name="Label2" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 autowrap_mode = 3
 
-[node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/VBoxContainer/ScrollContainer/Label2" node_paths=PackedStringArray("resource_node", "target_node")]
+[node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Label2" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
-resource_node = NodePath("../../../../../../../../..")
+resource_node = NodePath("../../../../../../../../../..")
 resource_attribute = Array[String](["current_ingredient", "description"])
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
-custom_minimum_size = Vector2(640, 0)
+custom_minimum_size = Vector2(420, 0)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "握壽司"
+label_settings = SubResource("LabelSettings_ahm5u")
+
+[node name="AttributeTracker" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../..")
+resource_attribute = Array[String](["sushi_type", "resource_name"])
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="MainIngredientLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "主料: 0 / 1"
+
+[node name="AttributeTracker" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MainIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../../..")
+resource_attribute = Array[String](["main_count_string"])
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MainIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../../..")
+resource_attribute = Array[String](["main_count_color"])
+target_node = NodePath("..")
+target_attribute = "modulate"
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="SecondaryIngredientLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "配料: 0 / 1"
+
+[node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondaryIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../../..")
+resource_attribute = Array[String](["secondary_count_string"])
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="AttributeTracker3" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondaryIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../../..")
+resource_attribute = Array[String](["secondary_count_color"])
+target_node = NodePath("..")
+target_attribute = "modulate"
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="TotalIngredientLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "總數: 0 / 1"
+
+[node name="AttributeTracker3" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TotalIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../../..")
+resource_attribute = Array[String](["total_count_string"])
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="AttributeTracker4" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TotalIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../../..")
+resource_attribute = Array[String](["total_count_color"])
+target_node = NodePath("..")
+target_attribute = "modulate"
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(360, 0)
 layout_mode = 2

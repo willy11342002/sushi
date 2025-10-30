@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=10 format=3 uid="uid://b2kmcd7nau2sg"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=10 format=3 uid="uid://cfjs3vd0182u"]
 
 [ext_resource type="Script" uid="uid://cw32chq14eiux" path="res://addons/game_template/save_load_system/scripts/save_data.gd" id="1_dvlvu"]
 [ext_resource type="Script" uid="uid://uo0mv2gxrfxk" path="res://scripts/resources/ingredient.gd" id="1_g1nav"]

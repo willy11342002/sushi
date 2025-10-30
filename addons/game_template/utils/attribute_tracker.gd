@@ -1,13 +1,10 @@
 class_name AttributeTracker extends Node
 
+@export var empty_text: String = ""
+
 @export_group("Resource")
 @export var resource_node: Node
 @export var resource_attribute: Array[String]
-
-@export_group("Formatting")
-@export var empty_text: String = ""
-@export var format_node: Node
-@export var format_func_name: String = ""
 
 @export_group("Target")
 @export var target_node: Node
@@ -38,7 +35,4 @@ func _on_res_changed() -> void:
 			attribute = attribute.get(resource_attribute[i])
 		if attribute == null:
 			return
-	if format_node != null and format_func_name != "":
-		var format_func = format_node.get(format_func_name)
-		attribute = format_func.call(attribute)
 	target_node.set(target_attribute, attribute)

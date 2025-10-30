@@ -1,22 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://v6avooyj7xdd"]
+[gd_scene load_steps=3 format=3 uid="uid://v6avooyj7xdd"]
 
 [ext_resource type="Script" uid="uid://bdm2xywyubtux" path="res://addons/game_template/utils/list_select_container/slot.gd" id="1_fq4tr"]
 [ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="2_ub0uf"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enbb6"]
-bg_color = Color(0.76, 0.6308, 0.532, 1)
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.364706, 0.301961, 0.258824, 1)
-corner_radius_top_left = 4
-corner_radius_top_right = 4
-corner_radius_bottom_right = 4
-corner_radius_bottom_left = 4
-
 [node name="SlotButton" type="Button"]
 custom_minimum_size = Vector2(300, 48)
-theme_override_colors/font_color = Color(0.415686, 0.345098, 0.290196, 1)
-theme_override_styles/normal = SubResource("StyleBoxFlat_enbb6")
 text = "PleaseSelect"
 script = ExtResource("1_fq4tr")
 

@@ -81,8 +81,9 @@ PleaseSelect,Please select an option,請選擇一個選項
 SelectSushiType,Select Sushi Type,選擇壽司類型
 SelectIngredient,Select Ingredient,選擇食材
 SelectSecondaryIngredient,Select Secondary Ingredient,選擇次要食材
-MainIngredient,Main Ingredient,主料
-SecondaryIngredient,Secondary Ingredient,配料
+MainIngredient,Main,主料
+SecondaryIngredient,Secondary,配料
+TotalIngredient,Total,食材總數量
 
 SelectMainIngredient,Select Main Ingredient,選擇主要食材
 SelectCookingMethod,Select Cooking Method,選擇烹飪方法

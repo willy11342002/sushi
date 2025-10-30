@@ -1,4 +1,4 @@
-class_name AlertDialog extends CanvasLayer
+class_name AlertDialog extends Control
 
 
 @export var message_label: Label

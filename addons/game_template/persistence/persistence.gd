@@ -1,6 +1,8 @@
 extends Node2D
 
 @export var data: SaveData
+@export var temp: Dictionary = {}
+
 var config := ConfigFile.new()
 var config_path = "user://settings.cfg"
 

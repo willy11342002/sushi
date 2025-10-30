@@ -45,12 +45,10 @@ layout_mode = 2
 text = "test"
 label_settings = SubResource("LabelSettings_ysrgc")
 
-[node name="ResourceAttributeTracker" type="Node" parent="PanelContainer/MarginContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "format_node", "target_node")]
+[node name="ResourceAttributeTracker" type="Node" parent="PanelContainer/MarginContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("3_mran7")
 resource_node = NodePath("../../../../..")
-resource_attribute = "file_name"
-format_node = NodePath("../../../../..")
-format_func_name = "_format_title"
+resource_attribute = Array[String](["title"])
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
@@ -58,12 +56,10 @@ metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 layout_mode = 2
 text = "Last Updated: "
 
-[node name="ResourceAttributeTracker" type="Node" parent="PanelContainer/MarginContainer/VBoxContainer/Label2" node_paths=PackedStringArray("resource_node", "format_node", "target_node")]
+[node name="ResourceAttributeTracker" type="Node" parent="PanelContainer/MarginContainer/VBoxContainer/Label2" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("3_mran7")
 resource_node = NodePath("../../../../..")
-resource_attribute = "modified_time"
-format_node = NodePath("../../../../..")
-format_func_name = "_format_time"
+resource_attribute = Array[String](["last_updated"])
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 

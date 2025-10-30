@@ -83,13 +83,13 @@ func _show_delete_dialog() -> void:
 
 
 func _on_create_button_confirm(title: String) -> void:
-	var data: SaveData = SaveData.create(_save_path, title)
-	ResourceSaver.save(data, data.file_name)
+	var data: SaveData = SaveData.create(_save_path, title)	
+	data.save_to_disk()
 
 	var slot: SaveSlot = save_slot.instantiate()
-	slot.setup(data.title, data.modified_time, data.file_name)
 	save_list.add_child(slot)
 	save_list.move_child(slot, 0)
+	slot.setup(data.title, data.modified_time, data.file_name)
 	slot.slot_select.connect(_on_slot_select)
 
 

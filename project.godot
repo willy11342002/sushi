@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://begcjy54cqi3s"
 
 SceneManager="*res://addons/game_template/ui_transition/SceneManager.tscn"
 Persistence="*res://addons/game_template/persistence/Persistence.tscn"
+UtilsTween="*res://addons/game_template/utils/UtilsTween.gd"
 
 [display]
 
@@ -34,7 +35,6 @@ enabled=PackedStringArray("res://addons/game_template/plugin.cfg")
 
 [gui]
 
-theme/custom="uid://b51s1fdftivxs"
 theme/default_font_antialiasing=2
 theme/default_font_hinting=2
 theme/default_font_subpixel_positioning=2

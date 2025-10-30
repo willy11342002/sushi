@@ -9,7 +9,7 @@ class_name SaveData extends Resource
 @export var ingredients: Array[Ingredient] = []
 
 static func create(_path: String, _title: String) -> SaveData:
-	var data = SaveData.new()
+	var data = Persistence.data.duplicate()
 	data.set_title(_path, _title)
 	data.modified_time = Time.get_unix_time_from_system()
 	return data
