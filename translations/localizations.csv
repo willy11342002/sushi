@@ -79,12 +79,18 @@ SaveGameSuccess,Game saved successfully!,遊戲儲存成功！
 Null, , 
 PleaseSelect,Please select an option,請選擇一個選項
 SelectSushiType,Select Sushi Type,選擇壽司類型
-SelectIngredient,Select Ingredient,選擇食材
-SelectSecondaryIngredient,Select Secondary Ingredient,選擇次要食材
 MainIngredient,Main,主料
 SecondaryIngredient,Secondary,配料
 TotalIngredient,Total,食材總數量
-
-SelectMainIngredient,Select Main Ingredient,選擇主要食材
-SelectCookingMethod,Select Cooking Method,選擇烹飪方法
 StartCook,Start Cooking,開始料理
+
+Appearance,Appearance,色彩
+Aroma,Aroma,香氣
+Taste,Taste,風味
+Price,Price,價格
+Complexity,Complexity,複雜度
+AppearanceDescription,"Heigher appearance indicates a greater ability to attract customers.",色彩越高越容易吸引顧客點餐。
+AromaDescription,"A stronger aroma can entice customers to taste the sushi more quickly.",香氣越濃郁，顧客用餐的速度越快。
+TasteDescription,"Better taste leads to higher customer satisfaction and increased likelihood of repeat orders.",風味越佳，顧客滿意度越高，回購率也越高。
+PriceDescription,"Prices that match customer satisfaction are more likely to be accepted.",與顧客滿意度匹配的價格更容易被客戶接受。
+ComplexityDescription,"Complexity affects serving speed, simpler dishes can be served faster.",複雜度影響出餐速度，簡單的料理可以更快上桌。

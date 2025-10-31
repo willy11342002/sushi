@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="2_ub0uf"]
 
 [node name="SlotButton" type="Button"]
-custom_minimum_size = Vector2(300, 48)
 text = "PleaseSelect"
 script = ExtResource("1_fq4tr")
 

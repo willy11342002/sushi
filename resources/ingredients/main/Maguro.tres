@@ -6,5 +6,7 @@
 resource_name = "Maguro"
 script = ExtResource("1_bmexr")
 type = "Main"
-info = ""
+appearance = 10.0
+aroma = 0.0
+taste = 0.0
 metadata/_custom_type_script = "uid://uo0mv2gxrfxk"

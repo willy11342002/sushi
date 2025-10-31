@@ -6,5 +6,7 @@
 resource_name = "Eel"
 script = ExtResource("1_hpyo4")
 type = "Main"
-info = ""
+appearance = 15.0
+aroma = 10.0
+taste = 0.0
 metadata/_custom_type_script = "uid://uo0mv2gxrfxk"

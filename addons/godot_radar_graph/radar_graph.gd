@@ -207,7 +207,7 @@ func get_item_value(index: int) -> float:
 func set_item_title(index: int, title: String) -> void:
 	if _out_of_boundsi_err(index, 0, key_items.size() - 1, "index: set_item_title"):
 		return
-	key_items[index]["title"] = title
+	key_items[index]["title"] = tr(title)
 	_cache()
 	queue_redraw()
 
@@ -221,7 +221,7 @@ func get_item_title(index: int) -> String:
 func set_item_tooltip(index: int, item_tooltip: String) -> void:
 	if _out_of_boundsi_err(index, 0, key_items.size() - 1, "index: set_item_tooltip"):
 		return
-	key_items[index]["tooltip"] = item_tooltip
+	key_items[index]["tooltip"] = tr(item_tooltip)
 
 
 func get_item_tooltip(index: int) -> String:

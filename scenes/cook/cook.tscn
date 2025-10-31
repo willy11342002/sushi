@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bp67nnbsn3gr6"]
+[gd_scene load_steps=7 format=3 uid="uid://bp67nnbsn3gr6"]
 
 [ext_resource type="Script" uid="uid://b5tcb5mfu5lsm" path="res://scenes/cook/scripts/cook.gd" id="1_m3shg"]
 [ext_resource type="FontFile" uid="uid://clvhc8tbba0u3" path="res://addons/game_template/assets/fonts/Cubic-11-1.430/Cubic_11.ttf" id="4_i65a4"]
+[ext_resource type="Script" uid="uid://dj2hfa37ymon4" path="res://addons/godot_radar_graph/radar_graph.gd" id="5_ahm5u"]
 [ext_resource type="PackedScene" uid="uid://v6avooyj7xdd" path="res://addons/game_template/utils/list_select_container/slot.tscn" id="6_qhcgi"]
 [ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="7_omo6v"]
 
@@ -9,7 +10,7 @@
 font = ExtResource("4_i65a4")
 font_size = 24
 
-[node name="Cook" type="Node2D" node_paths=PackedStringArray("main_ingredient_container", "secondary_ingredient_container", "main_count_label_node", "secondary_count_label_node", "total_count_label_node")]
+[node name="Cook" type="Node2D" node_paths=PackedStringArray("main_ingredient_container", "secondary_ingredient_container", "main_count_label_node", "secondary_count_label_node", "total_count_label_node", "current_ingredients")]
 script = ExtResource("1_m3shg")
 main_ingredient_container = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/MainIngredient/ScrollContainer/MarginContainer/MainIngredientContainer")
 secondary_ingredient_container = NodePath("CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient/ScrollContainer/MarginContainer/SecondaryIngredientContainer")
@@ -17,6 +18,7 @@ slot_scene = ExtResource("6_qhcgi")
 main_count_label_node = NodePath("CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MainIngredientLabel")
 secondary_count_label_node = NodePath("CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondaryIngredientLabel")
 total_count_label_node = NodePath("CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TotalIngredientLabel")
+current_ingredients = NodePath("CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HFlowContainer")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -42,9 +44,10 @@ layout_mode = 2
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(240, 320)
 layout_mode = 2
-current_tab = 0
+current_tab = 1
 
 [node name="MainIngredient" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -66,7 +69,6 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="SecondaryIngredient" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -76,6 +78,8 @@ horizontal_scroll_mode = 0
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer/SecondaryIngredient/ScrollContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
@@ -108,7 +112,7 @@ horizontal_alignment = 1
 [node name="AttributeTracker" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../../..")
-resource_attribute = Array[String](["current_ingredient", "resource_name"])
+resource_attribute = Array[String](["_current_ingredient", "resource_name"])
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
@@ -118,7 +122,7 @@ layout_mode = 2
 [node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/TextureRect" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../../..")
-resource_attribute = Array[String](["current_ingredient", "texture"])
+resource_attribute = Array[String](["_current_ingredient", "texture"])
 target_node = NodePath("..")
 target_attribute = "texture"
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
@@ -137,7 +141,7 @@ autowrap_mode = 3
 [node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/PanelContainer/MarginContainer/VBoxContainer/ScrollContainer/Label2" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../../../..")
-resource_attribute = Array[String](["current_ingredient", "description"])
+resource_attribute = Array[String](["_current_ingredient", "description"])
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
@@ -235,3 +239,109 @@ layout_mode = 2
 [node name="PanelContainer2" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(360, 0)
 layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer"]
+layout_mode = 2
+
+[node name="RadarGraph" type="Control" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+script = ExtResource("5_ahm5u")
+key_count = 5
+radius = 120.0
+key_items = Array[Dictionary]([{
+"title": "Appearance",
+"tooltip": "AppearanceDescription",
+"value": 0.0
+}, {
+"title": "Aroma",
+"tooltip": "AromaDescription",
+"value": 0.0
+}, {
+"title": "Taste",
+"tooltip": "TasteDescription",
+"value": 0.0
+}, {
+"title": "Complexity",
+"tooltip": "ComplexityDescription",
+"value": 0.0
+}, {
+"title": "Price",
+"tooltip": "PriceDescription",
+"value": 0.0
+}])
+max_value = 60.0
+background_color = Color(0.322917, 0.484375, 0.337897, 1)
+graph_color = Color(0.556863, 0.937255, 0.592157, 0.478431)
+show_guides = true
+guide_color = Color(0.451931, 0.729167, 0.477654, 1)
+guide_width = 3.0
+guide_step = 20.0
+items/key_0/value = 0.0
+items/key_0/title = "Appearance"
+items/key_0/tooltip = "AppearanceDescription"
+items/key_1/value = 0.0
+items/key_1/title = "Aroma"
+items/key_1/tooltip = "AromaDescription"
+items/key_2/value = 0.0
+items/key_2/title = "Taste"
+items/key_2/tooltip = "TasteDescription"
+items/key_3/value = 0.0
+items/key_3/title = "Complexity"
+items/key_3/tooltip = "ComplexityDescription"
+items/key_4/value = 0.0
+items/key_4/title = "Price"
+items/key_4/tooltip = "PriceDescription"
+
+[node name="AttributeTracker1" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../..")
+resource_attribute = Array[String](["appearance"])
+target_node = NodePath("..")
+target_attribute = "items/key_0/value"
+use_animation = true
+animation_duration = 0.2
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../..")
+resource_attribute = Array[String](["aroma"])
+target_node = NodePath("..")
+target_attribute = "items/key_1/value"
+use_animation = true
+animation_duration = 0.2
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="AttributeTracker3" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../..")
+resource_attribute = Array[String](["taste"])
+target_node = NodePath("..")
+target_attribute = "items/key_2/value"
+use_animation = true
+animation_duration = 0.2
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="AttributeTracker4" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../..")
+resource_attribute = Array[String](["complexity"])
+target_node = NodePath("..")
+target_attribute = "items/key_3/value"
+use_animation = true
+animation_duration = 0.2
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="AttributeTracker5" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("7_omo6v")
+resource_node = NodePath("../../../../../../../..")
+resource_attribute = Array[String](["price"])
+target_node = NodePath("..")
+target_attribute = "items/key_4/value"
+use_animation = true
+animation_duration = 0.2
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
