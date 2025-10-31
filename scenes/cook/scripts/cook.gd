@@ -11,69 +11,12 @@ extends Node2D
 
 signal res_changed
 
-var sushi_type: SushiType
+var offering: Offering
 var _current_ingredient: Resource
-var _selected_ingredients: Array
 
-var main_count_color: Color:
-	get:
-		var main_ingredients = _selected_ingredients.filter(func(i): return i.type == "Main")
-		if sushi_type == null:
-			return Color.WHITE
-		if main_ingredients.size() >= sushi_type.main_ingredient_count:
-			return Color.RED
-		return Color.WHITE
-var main_count_string: String:
-	get:
-		if sushi_type == null:
-			return tr("MainIngredient") + ": 0 / 0"
-		var main_ingredients = _selected_ingredients.filter(func(i): return i.type == "Main")
-		return tr("MainIngredient") + ": %d / %d" % [main_ingredients.size(), sushi_type.main_ingredient_count]
-var secondary_count_color: Color:
-	get:
-		if sushi_type == null:
-			return Color.WHITE
-		var secondary_ingredients = _selected_ingredients.filter(func(i): return i.type == "Secondary")
-		if secondary_ingredients.size() >= sushi_type.secondary_ingredient_count:
-			return Color.RED
-		return Color.WHITE
-var secondary_count_string: String:
-	get:
-		if sushi_type == null:
-			return tr("SecondaryIngredient") + ": 0 / 0"
-		var secondary_ingredients = _selected_ingredients.filter(func(i): return i.type == "Secondary")
-		return tr("SecondaryIngredient") + ": %d / %d" % [secondary_ingredients.size(), sushi_type.secondary_ingredient_count]
-var total_count_color: Color:
-	get:
-		if sushi_type == null:
-			return Color.WHITE
-		if _selected_ingredients.size() >= sushi_type.total_ingredient_count:
-			return Color.RED
-		return Color.WHITE
-var total_count_string: String:
-	get:
-		if sushi_type == null:
-			return tr("TotalIngredient") + ": 0 / 0"
-		return tr("TotalIngredient") + ": %d / %d" % [_selected_ingredients.size(), sushi_type.total_ingredient_count]
-
-var appearance: float:
-	get:
-		return _selected_ingredients.map(func (i): return i.appearance).reduce(func (a, b): return a + b, 0.0)
-var aroma: float:
-	get:
-		return _selected_ingredients.map(func (i): return i.aroma).reduce(func (a, b): return a + b, 0.0)
-var taste: float:
-	get:
-		return _selected_ingredients.map(func (i): return i.taste).reduce(func (a, b): return a + b, 0.0)
-var price: float:
-	get:
-		return 0.0
-var complexity: float:
-	get:
-		return 0.0
 
 func _ready() -> void:
-	sushi_type = Persistence.temp["sushi_type"]
+	offering = Offering.new(Persistence.temp["sushi_type"])
 	res_changed.emit()
 
 	for ingredient in Persistence.data.ingredients:
@@ -92,6 +35,44 @@ func _ready() -> void:
 					_on_preview_current,
 					_on_add_ingredient
 				)
+
+
+func _count_color(type: String) -> Color:
+	if offering == null:
+		return Color.WHITE
+	var _ingredients: Array
+	var _limit: int
+	match type:
+		"Main":
+			_ingredients = offering.ingredients.filter(func(i): return i.type == "Main")
+			_limit = offering.sushi_type.main_ingredient_count
+		"Secondary":
+			_ingredients = offering.ingredients.filter(func(i): return i.type == "Secondary")
+			_limit = offering.sushi_type.secondary_ingredient_count
+		_:
+			_ingredients = offering.ingredients
+			_limit = offering.sushi_type.total_ingredient_count
+	if _ingredients.size() >= _limit:
+		return Color.RED
+	return Color.WHITE
+
+
+func _count_string(type: String) -> String:
+	if offering == null:
+		return tr("%sIngredient" % type) + ": 0 / 0"
+	var _ingredients: Array
+	var _limit: int
+	match type:
+		"Main":
+			_ingredients = offering.ingredients.filter(func(i): return i.type == "Main")
+			_limit = offering.sushi_type.main_ingredient_count
+		"Secondary":
+			_ingredients = offering.ingredients.filter(func(i): return i.type == "Secondary")
+			_limit = offering.sushi_type.secondary_ingredient_count
+		_:
+			_ingredients = offering.ingredients
+			_limit = offering.sushi_type.total_ingredient_count
+	return "%s: %d / %d" % [tr("%sIngredient" % type), _ingredients.size(), _limit]
 
 
 func _create_slot(ingredient: Ingredient, container: Container, select_callback = null, confirm_callback = null) -> void:
@@ -113,24 +94,21 @@ func _on_preview_current(slot: Slot) -> void:
 func _on_add_ingredient(slot: Slot) -> void:
 	match slot.data.type:
 		"Main":
-			var main_ingredients = _selected_ingredients.filter(func(i): return i.type == "Main")
-			if main_ingredients.size() >= sushi_type.main_ingredient_count:
-				slot.button_pressed = false
+			var main_ingredients = offering.ingredients.filter(func(i): return i.type == "Main")
+			if main_ingredients.size() >= offering.sushi_type.main_ingredient_count:
 				await UtilsTween.shake(main_count_label_node, 5, 0.5)
 				return
 		"Secondary":
-			var secondary_ingredients = _selected_ingredients.filter(func(i): return i.type == "Secondary")
-			if secondary_ingredients.size() >= sushi_type.secondary_ingredient_count:
-				slot.button_pressed = false
+			var secondary_ingredients = offering.ingredients.filter(func(i): return i.type == "Secondary")
+			if secondary_ingredients.size() >= offering.sushi_type.secondary_ingredient_count:
 				await UtilsTween.shake(secondary_count_label_node, 5, 0.5)
 				return
 		_:
-			if _selected_ingredients.size() >= sushi_type.total_ingredient_count:
-				slot.button_pressed = false
+			if offering.ingredients.size() >= offering.sushi_type.total_ingredient_count:
 				await UtilsTween.shake(total_count_label_node, 5, 0.5)
 				return
 
-	_selected_ingredients.append(slot.data)
+	offering.ingredients.append(slot.data)
 	res_changed.emit()
 
 	_create_slot(
@@ -143,5 +121,5 @@ func _on_add_ingredient(slot: Slot) -> void:
 
 func _on_remove_ingredient(slot: Slot) -> void:
 	slot.queue_free()
-	_selected_ingredients.erase(slot.data)
+	offering.ingredients.erase(slot.data)
 	res_changed.emit()

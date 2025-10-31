@@ -5,6 +5,7 @@ class_name AttributeTracker extends Node
 @export_group("Resource")
 @export var resource_node: Node
 @export var resource_attribute: Array[String]
+@export var resource_callable_args: Array = []
 
 @export_group("Target")
 @export var target_node: Node
@@ -45,6 +46,8 @@ func _get_attribute():
 			return null
 		else:
 			attribute = attribute.get(resource_attribute[i])
+	if attribute is Callable:
+		attribute = attribute.callv(resource_callable_args)
 	return attribute
 
 func _on_res_changed() -> void:

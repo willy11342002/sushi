@@ -44,10 +44,9 @@ layout_mode = 2
 [node name="TabContainer" type="TabContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(240, 320)
 layout_mode = 2
-current_tab = 1
+current_tab = 0
 
 [node name="MainIngredient" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -69,6 +68,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="SecondaryIngredient" type="PanelContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
@@ -183,14 +183,16 @@ text = "主料: 0 / 1"
 [node name="AttributeTracker" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MainIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../../..")
-resource_attribute = Array[String](["main_count_string"])
+resource_attribute = Array[String](["_count_string"])
+resource_callable_args = ["Main"]
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
 [node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/MainIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../../..")
-resource_attribute = Array[String](["main_count_color"])
+resource_attribute = Array[String](["_count_color"])
+resource_callable_args = ["Main"]
 target_node = NodePath("..")
 target_attribute = "modulate"
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
@@ -202,14 +204,16 @@ text = "配料: 0 / 1"
 [node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondaryIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../../..")
-resource_attribute = Array[String](["secondary_count_string"])
+resource_attribute = Array[String](["_count_string"])
+resource_callable_args = ["Secondary"]
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
 [node name="AttributeTracker3" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/SecondaryIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../../..")
-resource_attribute = Array[String](["secondary_count_color"])
+resource_attribute = Array[String](["_count_color"])
+resource_callable_args = ["Secondary"]
 target_node = NodePath("..")
 target_attribute = "modulate"
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
@@ -221,14 +225,16 @@ text = "總數: 0 / 1"
 [node name="AttributeTracker3" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TotalIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../../..")
-resource_attribute = Array[String](["total_count_string"])
+resource_attribute = Array[String](["_count_string"])
+resource_callable_args = ["Total"]
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
 [node name="AttributeTracker4" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/TotalIngredientLabel" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../../..")
-resource_attribute = Array[String](["total_count_color"])
+resource_attribute = Array[String](["_count_color"])
+resource_callable_args = ["Total"]
 target_node = NodePath("..")
 target_attribute = "modulate"
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
@@ -299,7 +305,7 @@ items/key_4/tooltip = "PriceDescription"
 [node name="AttributeTracker1" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../..")
-resource_attribute = Array[String](["appearance"])
+resource_attribute = Array[String](["offering", "appearance"])
 target_node = NodePath("..")
 target_attribute = "items/key_0/value"
 use_animation = true
@@ -309,7 +315,7 @@ metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 [node name="AttributeTracker2" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../..")
-resource_attribute = Array[String](["aroma"])
+resource_attribute = Array[String](["offering", "aroma"])
 target_node = NodePath("..")
 target_attribute = "items/key_1/value"
 use_animation = true
@@ -319,7 +325,7 @@ metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 [node name="AttributeTracker3" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../..")
-resource_attribute = Array[String](["taste"])
+resource_attribute = Array[String](["offering", "taste"])
 target_node = NodePath("..")
 target_attribute = "items/key_2/value"
 use_animation = true
@@ -329,7 +335,7 @@ metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 [node name="AttributeTracker4" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../..")
-resource_attribute = Array[String](["complexity"])
+resource_attribute = Array[String](["offering", "complexity"])
 target_node = NodePath("..")
 target_attribute = "items/key_3/value"
 use_animation = true
@@ -339,7 +345,7 @@ metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 [node name="AttributeTracker5" type="Node" parent="CanvasLayer/MarginContainer/HBoxContainer/PanelContainer2/MarginContainer/VBoxContainer/RadarGraph" node_paths=PackedStringArray("resource_node", "target_node")]
 script = ExtResource("7_omo6v")
 resource_node = NodePath("../../../../../../../..")
-resource_attribute = Array[String](["price"])
+resource_attribute = Array[String](["offering", "price"])
 target_node = NodePath("..")
 target_attribute = "items/key_4/value"
 use_animation = true

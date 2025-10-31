@@ -79,6 +79,7 @@ SaveGameSuccess,Game saved successfully!,遊戲儲存成功！
 Null, , 
 PleaseSelect,Please select an option,請選擇一個選項
 SelectSushiType,Select Sushi Type,選擇壽司類型
+Offering,Offering,菜色
 MainIngredient,Main,主料
 SecondaryIngredient,Secondary,配料
 TotalIngredient,Total,食材總數量
