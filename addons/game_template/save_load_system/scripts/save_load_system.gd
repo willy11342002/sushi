@@ -47,23 +47,20 @@ func _load_save_list_from_disk() -> void:
 		var modified_time: int = FileAccess.get_modified_time(_save_path + file_name)
 		var slot: SaveSlot = save_slot.instantiate()
 		save_list.add_child(slot)
-		slot.setup(file_name, modified_time, _save_path + file_name)
-		slot.slot_select.connect(_on_slot_select)
+		slot.setup_from_file(file_name, modified_time, _save_path + file_name)
+		slot.slot_left_click.connect(_on_slot_hover)
 		slot.slot_double_click.connect(func(s):
-			_on_slot_select(s)
+			_on_slot_hover(s)
 			if mode == "Load":
 				_on_load_button_up()
 			elif mode == "Save":
 				_on_save_button_up()
 		)
 
-	_on_slot_select(null)
+	_on_slot_hover(null)
 
 
-func _on_slot_select(slot: SaveSlot) -> void:
-	if _select_slot != null:
-		_select_slot.unselect()
-
+func _on_slot_hover(slot: SaveSlot) -> void:
 	_select_slot = slot
 
 	load_button.disabled = slot == null
@@ -89,8 +86,8 @@ func _on_create_button_confirm(title: String) -> void:
 	var slot: SaveSlot = save_slot.instantiate()
 	save_list.add_child(slot)
 	save_list.move_child(slot, 0)
-	slot.setup(data.title, data.modified_time, data.file_name)
-	slot.slot_select.connect(_on_slot_select)
+	slot.slot_left_click.connect(_on_slot_hover)
+	slot.setup_from_file(data.title, data.modified_time, data.file_name)
 
 
 func _on_save_button_up() -> void:
@@ -103,7 +100,7 @@ func _on_save_button_up() -> void:
 func _on_delete_button_confirm():
 	OS.move_to_trash(ProjectSettings.globalize_path(_select_slot.full_path))
 	_select_slot.queue_free()
-	_on_slot_select(null)
+	_on_slot_hover(null)
 
 
 func _on_load_button_up():

@@ -1,66 +1,56 @@
-[gd_scene load_steps=5 format=3 uid="uid://cryc8dxs5sjup"]
+[gd_scene load_steps=4 format=3 uid="uid://c021jti0bjgqe"]
 
-[ext_resource type="Script" uid="uid://b0cltqj0auydc" path="res://addons/game_template/save_load_system/scripts/save_slot.gd" id="1_ysrgc"]
-[ext_resource type="Texture2D" uid="uid://5jpgfs0y32qe" path="res://addons/game_template/assets/sprites/select.png" id="2_1u80p"]
-[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="3_mran7"]
+[ext_resource type="Script" uid="uid://b0cltqj0auydc" path="res://addons/game_template/save_load_system/scripts/save_slot.gd" id="1_3fn4v"]
+[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="2_7glmc"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_ysrgc"]
+[sub_resource type="LabelSettings" id="LabelSettings_n4kyu"]
 font_size = 36
 font_color = Color(0.415686, 0.345098, 0.290196, 1)
 
-[node name="SaveSlot" type="MarginContainer" node_paths=PackedStringArray("title_label", "last_updated_label", "hover_rect")]
-custom_minimum_size = Vector2(0, 70)
+[node name="Slot" type="Button"]
+custom_minimum_size = Vector2(302, 85)
 offset_right = 302.0
-offset_bottom = 70.0
-theme_override_constants/margin_right = 8
-script = ExtResource("1_ysrgc")
-title_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/Label")
-last_updated_label = NodePath("PanelContainer/MarginContainer/VBoxContainer/Label2")
-hover_rect = NodePath("PanelContainer/NinePatchRect")
+offset_bottom = 85.0
+script = ExtResource("1_3fn4v")
+metadata/_custom_type_script = "uid://b0cltqj0auydc"
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
-layout_mode = 2
-
-[node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer"]
-visible = false
-layout_mode = 2
-texture = ExtResource("2_1u80p")
-patch_margin_left = 8
-patch_margin_top = 9
-patch_margin_right = 8
-patch_margin_bottom = 9
-
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
-layout_mode = 2
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/margin_left = 8
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "test"
-label_settings = SubResource("LabelSettings_ysrgc")
+label_settings = SubResource("LabelSettings_n4kyu")
 
-[node name="ResourceAttributeTracker" type="Node" parent="PanelContainer/MarginContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
-script = ExtResource("3_mran7")
-resource_node = NodePath("../../../../..")
+[node name="ResourceAttributeTracker" type="Node" parent="MarginContainer/VBoxContainer/Label" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("2_7glmc")
+resource_node = NodePath("../../../..")
 resource_attribute = Array[String](["title"])
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
-[node name="Label2" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+[node name="Label2" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Last Updated: "
 
-[node name="ResourceAttributeTracker" type="Node" parent="PanelContainer/MarginContainer/VBoxContainer/Label2" node_paths=PackedStringArray("resource_node", "target_node")]
-script = ExtResource("3_mran7")
-resource_node = NodePath("../../../../..")
+[node name="ResourceAttributeTracker" type="Node" parent="MarginContainer/VBoxContainer/Label2" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("2_7glmc")
+resource_node = NodePath("../../../..")
 resource_attribute = Array[String](["last_updated"])
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
-[connection signal="gui_input" from="PanelContainer" to="." method="_on_gui_input"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="select"]

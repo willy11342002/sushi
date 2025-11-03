@@ -14,5 +14,5 @@ resource_attribute = Array[String](["data", "resource_name"])
 target_node = NodePath("..")
 metadata/_custom_type_script = "uid://cgj56mo7eaglw"
 
-[connection signal="button_up" from="." to="." method="confirm"]
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
 [connection signal="mouse_entered" from="." to="." method="select"]

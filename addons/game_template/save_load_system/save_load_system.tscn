@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://cvwmnd6o5yauf"]
 
 [ext_resource type="Script" uid="uid://dwhc538awoig6" path="res://addons/game_template/save_load_system/scripts/save_load_system.gd" id="1_b6wie"]
-[ext_resource type="PackedScene" uid="uid://cryc8dxs5sjup" path="res://addons/game_template/save_load_system/save_slot.tscn" id="2_bx8al"]
 [ext_resource type="PackedScene" uid="uid://c0fllv5sn1wrr" path="res://addons/game_template/dialogs/input_dialog.tscn" id="2_rarvi"]
 [ext_resource type="PackedScene" uid="uid://n73ffrp6fxpj" path="res://addons/game_template/dialogs/confirm_dialog.tscn" id="3_hyrb3"]
 [ext_resource type="PackedScene" uid="uid://c2k7someefhpo" path="res://addons/game_template/dialogs/alert_dialog.tscn" id="4_6veun"]
+[ext_resource type="PackedScene" uid="uid://c021jti0bjgqe" path="res://addons/game_template/save_load_system/save_slot.tscn" id="5_6veun"]
 
 [node name="SaveLoadSystem" type="CanvasLayer" node_paths=PackedStringArray("save_list", "load_button", "save_button", "create_button", "delete_button", "exit_button")]
 script = ExtResource("1_b6wie")
@@ -14,7 +14,7 @@ prev_scene = "uid://vdg314f1160w"
 input_dialog_scene = ExtResource("2_rarvi")
 confirm_dialog_scene = ExtResource("3_hyrb3")
 alert_dialog_scene = ExtResource("4_6veun")
-save_slot = ExtResource("2_bx8al")
+save_slot = ExtResource("5_6veun")
 save_list = NodePath("MainContainer/HBoxContainer/MarginContainer2/ScrollContainer/SaveList")
 load_button = NodePath("MainContainer/HBoxContainer/MarginContainer/VBoxContainer/LoadButton")
 save_button = NodePath("MainContainer/HBoxContainer/MarginContainer/VBoxContainer/SaveButton")

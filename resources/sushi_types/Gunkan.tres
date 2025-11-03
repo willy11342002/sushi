@@ -21,6 +21,7 @@ total_ingredient_count = 4
 appearance_multiple = 1.0
 aroma_multiple = 1.0
 taste_multiple = 1.0
+price_multiple = 1.0
 appearance_weight = 1.0
 aroma_weight = 1.0
 taste_weight = 1.0

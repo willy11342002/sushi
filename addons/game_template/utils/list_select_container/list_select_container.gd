@@ -30,7 +30,7 @@ func create_slots(resources: Array) -> void:
 	for resource in resources:
 		_create_slot(resource)
 
-	_on_slot_select(get_child(0) as Slot)
+	_on_slot_hover(get_child(0) as Slot)
 
 
 func clear_slots() -> void:
@@ -43,16 +43,16 @@ func _create_slot(resource: Resource) -> void:
 	var slot_instance: Slot = slot.instantiate() as Slot
 	add_child(slot_instance)
 	slot_instance.setup(resource)
-	slot_instance.slot_select.connect(_on_slot_select)
-	slot_instance.slot_confirm.connect(_on_slot_confirm)
+	slot_instance.slot_hover.connect(_on_slot_hover)
+	slot_instance.slot_left_click.connect(_on_slot_left_click)
 
 
-func _on_slot_select(_slot: Slot) -> void:
+func _on_slot_hover(_slot: Slot) -> void:
 	_select_slot = _slot
 	res_changed.emit()
 
 
-func _on_slot_confirm(_slot: Slot) -> void:
+func _on_slot_left_click(_slot: Slot) -> void:
 	_select_slot = _slot
 	res_changed.emit()
 	confirm.emit()

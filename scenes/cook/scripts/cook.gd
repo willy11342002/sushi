@@ -13,7 +13,7 @@ signal res_changed
 
 var offering: Offering
 var _current_ingredient: Resource
-
+var _current_slots: Dictionary = {}
 
 func _ready() -> void:
 	offering = Offering.new(Persistence.temp["sushi_type"])
@@ -25,15 +25,13 @@ func _ready() -> void:
 				_create_slot(
 					ingredient,
 					main_ingredient_container,
-					_on_preview_current,
-					_on_add_ingredient
+					true,
 				)
 			"Secondary":
 				_create_slot(
 					ingredient,
 					secondary_ingredient_container,
-					_on_preview_current,
-					_on_add_ingredient
+					true,
 				)
 
 
@@ -75,15 +73,17 @@ func _count_string(type: String) -> String:
 	return "%s: %d / %d" % [tr("%sIngredient" % type), _ingredients.size(), _limit]
 
 
-func _create_slot(ingredient: Ingredient, container: Container, select_callback = null, confirm_callback = null) -> void:
+func _create_slot(ingredient: Ingredient, container: Container, _connect: bool = false) -> Slot:
 	var slot: Slot = slot_scene.instantiate()
 	container.add_child(slot)
 	slot.setup(ingredient)
-	
-	if select_callback != null:
-		slot.slot_select.connect(select_callback)
-	if confirm_callback != null:
-		slot.slot_confirm.connect(confirm_callback)
+	slot.slot_hover.connect(_on_preview_current)
+
+	if _connect:
+		slot.slot_left_click.connect(_on_add_ingredient)
+		slot.slot_right_click.connect(_on_remove_ingredient)
+
+	return slot
 
 
 func _on_preview_current(slot: Slot) -> void:
@@ -111,15 +111,18 @@ func _on_add_ingredient(slot: Slot) -> void:
 	offering.ingredients.append(slot.data)
 	res_changed.emit()
 
-	_create_slot(
+	var _slot = _create_slot(
 		slot.data,
 		current_ingredients,
-		null,
-		_on_remove_ingredient
 	)
+
+	if _current_slots.has(slot):
+		_current_slots[slot].append(_slot)
+	else:
+		_current_slots[slot] = [_slot]
 
 
 func _on_remove_ingredient(slot: Slot) -> void:
-	slot.queue_free()
+	_current_slots[slot].pop_back().queue_free()
 	offering.ingredients.erase(slot.data)
 	res_changed.emit()
