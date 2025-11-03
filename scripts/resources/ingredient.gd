@@ -11,3 +11,4 @@ var description: String:
 @export var appearance: float = 1.0
 @export var aroma: float = 1.0
 @export var taste: float = 1.0
+@export var complexity: float = 1.0
