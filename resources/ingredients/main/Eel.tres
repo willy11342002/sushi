@@ -1,12 +1,18 @@
-[gd_resource type="Resource" script_class="Ingredient" load_steps=2 format=3 uid="uid://bts4nby5uaeiu"]
+[gd_resource type="Resource" script_class="Ingredient" load_steps=5 format=3 uid="uid://bts4nby5uaeiu"]
 
 [ext_resource type="Script" uid="uid://uo0mv2gxrfxk" path="res://scripts/resources/ingredient.gd" id="1_hpyo4"]
+[ext_resource type="Script" uid="uid://covowudrlcs6n" path="res://scripts/resources/tag.gd" id="2_7c8ke"]
+[ext_resource type="Resource" uid="uid://djjor7x2px614" path="res://resources/tags/WhiteFish.tres" id="3_7c8ke"]
+[ext_resource type="Resource" uid="uid://dveklf8cqqa7i" path="res://resources/tags/Raw.tres" id="4_pjxab"]
 
 [resource]
 resource_name = "Eel"
 script = ExtResource("1_hpyo4")
 type = "Main"
+tags = Array[ExtResource("2_7c8ke")]([ExtResource("3_7c8ke"), ExtResource("4_pjxab")])
 appearance = 15.0
 aroma = 10.0
 taste = 0.0
+price = 1.0
+complexity = 1.0
 metadata/_custom_type_script = "uid://uo0mv2gxrfxk"

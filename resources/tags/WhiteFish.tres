@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Tag" load_steps=2 format=3 uid="uid://djjor7x2px614"]
+
+[ext_resource type="Script" uid="uid://covowudrlcs6n" path="res://scripts/resources/tag.gd" id="1_4in7e"]
+
+[resource]
+resource_name = "WhiteFish"
+script = ExtResource("1_4in7e")
+metadata/_custom_type_script = "uid://covowudrlcs6n"

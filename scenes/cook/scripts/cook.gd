@@ -1,19 +1,25 @@
 extends Node2D
 
-@export var main_ingredient_container: VBoxContainer
-@export var secondary_ingredient_container: VBoxContainer
+@export var main_ingredient_container: Container
+@export var secondary_ingredient_container: Container
+@export var tag_container: Container
 @export var slot_scene: PackedScene
 
 @export var main_count_label_node: Label
 @export var secondary_count_label_node: Label
 @export var total_count_label_node: Label
-@export var current_ingredients: Container
 
 signal res_changed
 
 var offering: Offering
-var _current_ingredient: Resource
-var _current_slots: Dictionary = {}
+var _current_ingredient: Ingredient
+var _current_tags: Array = []
+var _current_tags_dic: Dictionary = _current_tags.reduce(
+	func(dict, slot):
+		dict[slot.data] = slot
+		return dict,
+	{},
+)
 
 func _ready() -> void:
 	offering = Offering.new(Persistence.temp["sushi_type"])
@@ -73,13 +79,19 @@ func _count_string(type: String) -> String:
 	return "%s: %d / %d" % [tr("%sIngredient" % type), _ingredients.size(), _limit]
 
 
-func _create_slot(ingredient: Ingredient, container: Container, _connect: bool = false) -> Slot:
+func _attribute_string(attribute: String) -> String:
+	if offering == null:
+		return tr(attribute.capitalize()) + ": 0"
+	return tr(attribute.capitalize()) + ": " + str(int(offering.get(attribute).call()))
+
+
+func _create_slot(resource: Resource, container: Container, _connect: bool = false) -> Slot:
 	var slot: Slot = slot_scene.instantiate()
 	container.add_child(slot)
-	slot.setup(ingredient)
-	slot.slot_hover.connect(_on_preview_current)
+	slot.setup(resource)
 
 	if _connect:
+		slot.slot_hover.connect(_on_preview_current)
 		slot.slot_left_click.connect(_on_add_ingredient)
 		slot.slot_right_click.connect(_on_remove_ingredient)
 
@@ -108,21 +120,42 @@ func _on_add_ingredient(slot: Slot) -> void:
 				await UtilsTween.shake(total_count_label_node, 5, 0.5)
 				return
 
+	slot.count += 1
 	offering.ingredients.append(slot.data)
+	slot.data.on_upgrade(offering)
 	res_changed.emit()
 
-	var _slot = _create_slot(
-		slot.data,
-		current_ingredients,
-	)
-
-	if _current_slots.has(slot):
-		_current_slots[slot].append(_slot)
-	else:
-		_current_slots[slot] = [_slot]
+	for tag in slot.data.tags:
+		tag.on_upgrade(offering)
+		_on_add_tag(tag)
 
 
 func _on_remove_ingredient(slot: Slot) -> void:
-	_current_slots[slot].pop_back().queue_free()
+	if slot.count <= 0:
+		return
+	
+	slot.count -= 1
 	offering.ingredients.erase(slot.data)
+	slot.data.on_downgrade(offering)
 	res_changed.emit()
+
+	for tag in slot.data.tags:
+		tag.on_downgrade(offering)
+		_on_remove_tag(tag)
+
+
+func _on_add_tag(tag: Tag) -> void:
+	if not _current_tags_dic.has(tag):
+		_current_tags_dic[tag] = _create_slot(
+			tag,
+			tag_container,
+		)
+	_current_tags_dic[tag].count += 1
+
+
+func _on_remove_tag(tag: Tag) -> void:
+	if _current_tags_dic.has(tag):
+		_current_tags_dic[tag].count -= 1
+		if _current_tags_dic[tag].count <= 0:
+			_current_tags_dic[tag].queue_free()
+			_current_tags_dic.erase(tag)

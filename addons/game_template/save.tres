@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SaveData" load_steps=10 format=3 uid="uid://cfjs3vd0182u"]
+[gd_resource type="Resource" script_class="SaveData" load_steps=11 format=3 uid="uid://cfjs3vd0182u"]
 
 [ext_resource type="Script" uid="uid://cw32chq14eiux" path="res://addons/game_template/save_load_system/scripts/save_data.gd" id="1_dvlvu"]
 [ext_resource type="Script" uid="uid://uo0mv2gxrfxk" path="res://scripts/resources/ingredient.gd" id="1_g1nav"]
@@ -7,8 +7,9 @@
 [ext_resource type="Resource" uid="uid://bts4nby5uaeiu" path="res://resources/ingredients/main/Eel.tres" id="2_unstb"]
 [ext_resource type="Resource" uid="uid://dnaj1y6ggaprq" path="res://resources/sushi_types/Gunkan.tres" id="3_iquk3"]
 [ext_resource type="Resource" uid="uid://dm6ntnw3mwtuc" path="res://resources/ingredients/main/Maguro.tres" id="3_iu451"]
-[ext_resource type="Resource" uid="uid://cbjmjh82mmcm4" path="res://resources/ingredients/secondary/Avocado.tres" id="4_vdxl1"]
-[ext_resource type="Resource" uid="uid://cnnj8a1s2kjy7" path="res://resources/ingredients/secondary/Cucumber.tres" id="5_4k58w"]
+[ext_resource type="Resource" uid="uid://2447cjdj1w0g" path="res://resources/ingredients/main/Salmon.tres" id="4_iu451"]
+[ext_resource type="Resource" uid="uid://dloomptsxd2gv" path="res://resources/ingredients/main/Scallop.tres" id="5_vdxl1"]
+[ext_resource type="Resource" uid="uid://bcakrenhg1kfr" path="res://resources/ingredients/main/Uni.tres" id="6_4k58w"]
 
 [resource]
 script = ExtResource("1_dvlvu")
@@ -16,5 +17,5 @@ title = ""
 file_name = ""
 modified_time = 0
 sushi_types = Array[ExtResource("2_iquk3")]([ExtResource("3_iquk3"), ExtResource("2_28no7")])
-ingredients = Array[ExtResource("1_g1nav")]([ExtResource("2_unstb"), ExtResource("3_iu451"), ExtResource("4_vdxl1"), ExtResource("5_4k58w")])
+ingredients = Array[ExtResource("1_g1nav")]([ExtResource("2_unstb"), ExtResource("3_iu451"), ExtResource("4_iu451"), ExtResource("5_vdxl1"), ExtResource("6_4k58w")])
 metadata/_custom_type_script = "uid://cw32chq14eiux"

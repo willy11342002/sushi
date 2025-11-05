@@ -11,10 +11,7 @@ region = Rect2(0, 0, 64, 64)
 resource_name = "Nigiri"
 script = ExtResource("1_a3shf")
 texture = SubResource("AtlasTexture_3yy5a")
-info = "遊戲定位：突出「主食材」表現，適合高品質主料。
-效果機制：主食材品質權重大（主食材貢獻係數 = 1.9）；副食材/裝飾加成較小(0.9)。
-製作特性：微遊戲重在「Timing 精準度」一次按鍵判定；高精準獲得視覺「光澤」或「切片完整度」加成。
-適合：高級魚類（鮪、海膽、干貝）。"
+complexity_multiple = 1.0
 main_ingredient_count = 2
 secondary_ingredient_count = 1
 total_ingredient_count = 3
@@ -25,5 +22,4 @@ price_multiple = 1.0
 appearance_weight = 1.0
 aroma_weight = 1.0
 taste_weight = 1.0
-complexity_multiple = 1.0
 metadata/_custom_type_script = "uid://c8e4t52uvijpg"

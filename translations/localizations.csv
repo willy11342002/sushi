@@ -38,6 +38,12 @@ SoyDescription,"A traditional condiment made from fermented soybeans, wheat, sal
 Wasabi,wasabi,芥末
 WasabiDescription,"A pungent green paste made from the grated rhizome of the wasabi plant. It has a sharp, spicy flavor that complements sushi and sashimi, providing a refreshing heat that clears the palate.",一種由山葵植物的根莖磨製而成的辛辣綠色醬料，具有強烈的辛辣風味，能夠襯托壽司和生魚片，帶來清爽的辣感，清潔味蕾。
 
+# Tags,,
+Shellfish,shellfish,貝類
+RedFish,red fish,紅肉魚
+WhiteFish,white fish,白肉魚
+Lipid,lipid,高脂
+Umami,umami,鮮味
 
 # Cooking Methods,,
 Raw,raw,生食
@@ -85,6 +91,7 @@ SecondaryIngredient,Secondary,配料
 TotalIngredient,Total,食材總數量
 StartCook,Start Cooking,開始料理
 
+EstimateQuality,Estimated Quality,預估品質
 Appearance,Appearance,色彩
 Aroma,Aroma,香氣
 Taste,Taste,風味

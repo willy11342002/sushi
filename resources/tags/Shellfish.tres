@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Tag" load_steps=2 format=3 uid="uid://470ljoqkm7ms"]
+
+[ext_resource type="Script" uid="uid://covowudrlcs6n" path="res://scripts/resources/tag.gd" id="1_m63v8"]
+
+[resource]
+resource_name = "Shellfish"
+script = ExtResource("1_m63v8")
+metadata/_custom_type_script = "uid://covowudrlcs6n"

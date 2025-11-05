@@ -11,18 +11,15 @@ region = Rect2(192, 0, 64, 64)
 resource_name = "Temaki"
 script = ExtResource("1_rdtd0")
 texture = SubResource("AtlasTexture_58vkp")
-info = "遊戲定位：靈活、客製化、吸引遊戲中旅行客或隨機顧客（新奇感）。
-效果機制：選料不限定主料或配料，利潤較低(最終價格係數0.9)，容錯高（Timing 容錯窗較寬）。「口感」類型combo效果上升。
-製作特性：微遊戲偏「決策型」（在短時間內挑選至多 3 種配料並確認），適合新手或實驗配方。
-適合：旅客偏好、街邊小吃活動場景。"
+complexity_multiple = 1.5
 main_ingredient_count = 4
 secondary_ingredient_count = 4
 total_ingredient_count = 4
 appearance_multiple = 1.0
 aroma_multiple = 1.0
 taste_multiple = 1.0
+price_multiple = 1.0
 appearance_weight = 1.0
 aroma_weight = 1.0
 taste_weight = 1.0
-complexity_multiple = 1.0
 metadata/_custom_type_script = "uid://c8e4t52uvijpg"
