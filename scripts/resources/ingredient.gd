@@ -1,4 +1,4 @@
-class_name Ingredient extends Resource
+class_name Ingredient extends DescriptionResource
 
 
 @export_enum("Main", "Secondary") var type: String
@@ -11,9 +11,6 @@ class_name Ingredient extends Resource
 @export var taste: float = 1.0
 @export var price: float = 1.0
 @export var complexity: float = 1.0
-
-
-var description: String = resource_name + "Description"
 
 
 func on_upgrade(offering: Offering) -> void:

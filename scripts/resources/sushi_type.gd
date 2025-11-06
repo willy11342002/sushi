@@ -1,4 +1,4 @@
-class_name SushiType extends Resource
+class_name SushiType extends DescriptionResource
 
 
 @export var texture: Texture2D
@@ -19,9 +19,6 @@ class_name SushiType extends Resource
 @export var appearance_weight: float = 1.0
 @export var aroma_weight: float = 1.0
 @export var taste_weight: float = 1.0
-
-
-var description: String = resource_name + "Description"
 
 
 func on_upgrade(offering: Offering) -> void:
