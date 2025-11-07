@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://bbwdxl35kq3qk"]
+
+[ext_resource type="Script" uid="uid://b0qsj414ngk6o" path="res://addons/game_template/inventory/scripts/inventory_slot.gd" id="1_qjydl"]
+[ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="2_jvy8r"]
+
+[node name="SlotButton" type="Button"]
+custom_minimum_size = Vector2(64, 64)
+script = ExtResource("1_qjydl")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="TrackResource2" type="Node" parent="TextureRect" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("2_jvy8r")
+resource_node = NodePath("../..")
+resource_attribute = Array[String](["data", "resource", "icon"])
+target_node = NodePath("..")
+target_attribute = "texture"
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -23.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "1"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="TrackResource" type="Node" parent="Label" node_paths=PackedStringArray("resource_node", "target_node")]
+script = ExtResource("2_jvy8r")
+resource_node = NodePath("../..")
+resource_attribute = Array[String](["count_string"])
+target_node = NodePath("..")
+metadata/_custom_type_script = "uid://cgj56mo7eaglw"
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="select"]

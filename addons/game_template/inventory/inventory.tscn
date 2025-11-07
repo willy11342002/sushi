@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8sn8g2ox5rxq"]
+
+[ext_resource type="Script" uid="uid://dt2cry35cg2bj" path="res://addons/game_template/inventory/scripts/inventory.gd" id="1_nlqwc"]
+[ext_resource type="PackedScene" uid="uid://bbwdxl35kq3qk" path="res://addons/game_template/inventory/inventory_slot.tscn" id="2_iayt8"]
+
+[node name="Inventory" type="PanelContainer" node_paths=PackedStringArray("slot_container") groups=["Persist"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nlqwc")
+slot_container = NodePath("ScrollContainer/GridContainer")
+slot_scene = ExtResource("2_iayt8")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 2
+
+[node name="GridContainer" type="GridContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+columns = 4

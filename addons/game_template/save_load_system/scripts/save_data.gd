@@ -9,7 +9,7 @@ class_name SaveData extends Resource
 @export var sushi_types: Array[SushiType] = []
 @export var ingredients: Array[Ingredient] = []
 
-@export var inventories: Dictionary = {}
+@export var inventories: Array[SlotResource] = []
 
 static func create(_path: String, _title: String) -> SaveData:
 	var data = Persistence.data.duplicate()

@@ -8,6 +8,19 @@
 
 config_version=5
 
+[addons]
+
+resources_spreadsheet_view/array_color_tint=100.0
+resources_spreadsheet_view/color_rows=true
+resources_spreadsheet_view/array_min_width=128.0
+resources_spreadsheet_view/resource_preview_size=32.0
+resources_spreadsheet_view/clip_headers=false
+resources_spreadsheet_view/dupe_arrays=true
+resources_spreadsheet_view/context_menu_on_leftclick=false
+resources_spreadsheet_view/fold_docks=true
+resources_spreadsheet_view/resource_cell_label_mode=1
+resources_spreadsheet_view/freeze_first_column=true
+
 [application]
 
 config/name="sushi"
@@ -31,7 +44,11 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/game_template/plugin.cfg", "res://addons/godot_radar_graph/plugin.cfg")
+enabled=PackedStringArray("res://addons/game_template/plugin.cfg", "res://addons/godot_radar_graph/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/simple_resource_icons/plugin.cfg")
+
+[global_group]
+
+Persist=""
 
 [gui]
 
@@ -52,6 +69,14 @@ B={
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":2,"position":Vector2(61, 18),"global_position":Vector2(70, 66),"factor":1.0,"button_index":2,"canceled":false,"pressed":true,"double_click":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":0,"pressure":0.0,"pressed":false,"script":null)
 ]
+}
+X={
+"deadzone": 0.2,
+"events": []
+}
+Y={
+"deadzone": 0.2,
+"events": []
 }
 
 [internationalization]
