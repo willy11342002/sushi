@@ -1,6 +1,8 @@
 class_name DescriptionResource extends Resource
 
-var description: String = resource_name + "Description"
+var description: String:
+	get:
+		return resource_name + "Description"
 
 func get_uid() -> int:
 	return ResourceLoader.get_resource_uid(resource_path)

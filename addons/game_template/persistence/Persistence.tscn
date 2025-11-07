@@ -1,12 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ckm8x88eyasnb"]
+[gd_scene load_steps=3 format=3 uid="uid://ckm8x88eyasnb"]
 
-[ext_resource type="Script" uid="uid://cfjvanprm4iqy" path="res://addons/game_template/persistence/persistence.gd" id="1_csgpr"]
+[ext_resource type="Script" uid="uid://cfjvanprm4iqy" path="res://addons/game_template/persistence/Persistence.gd" id="1_csgpr"]
 [ext_resource type="Resource" uid="uid://cfjs3vd0182u" path="res://addons/game_template/save.tres" id="2_ro4b3"]
-[ext_resource type="Resource" uid="uid://d34cm46rn6013" path="res://resources/sushi_types/Nigiri.tres" id="3_6f0mc"]
 
 [node name="Persistence" type="Node2D"]
 script = ExtResource("1_csgpr")
 data = ExtResource("2_ro4b3")
-temp = {
-"sushi_type": ExtResource("3_6f0mc")
-}

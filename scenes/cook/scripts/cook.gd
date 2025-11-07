@@ -22,7 +22,7 @@ var _current_tags_dic: Dictionary = _current_tags.reduce(
 )
 
 func _ready() -> void:
-	offering = Offering.new(Persistence.temp["sushi_type"])
+	offering = Offering.new(Persistence.data.temp["sushi_type"])
 	res_changed.emit()
 
 	for ingredient in Persistence.data.ingredients:

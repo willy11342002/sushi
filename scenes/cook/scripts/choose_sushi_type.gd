@@ -11,7 +11,7 @@ func _on_exit_button_up() -> void:
 	SceneManager.change_scene(prev_scene)
 
 func _on_confirm_button_up() -> void:
-	Persistence.temp["sushi_type"] = list_container.resource
+	Persistence.data.temp["sushi_type"] = list_container.resource
 	SceneManager.change_scene(next_scene)
 
 func _ready() -> void:

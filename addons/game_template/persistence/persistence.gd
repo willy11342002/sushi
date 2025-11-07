@@ -1,7 +1,6 @@
 extends Node2D
 
 @export var data: SaveData
-@export var temp: Dictionary = {}
 
 var config := ConfigFile.new()
 var config_path = "user://settings.cfg"
@@ -9,17 +8,17 @@ var config_path = "user://settings.cfg"
 signal input_map_changed
 
 func save_data():
-	for obj in get_tree().get_nodes_in_group("persistence"):
-		if obj.has_method("dumps_data"):
-			obj.dumps_data(data)
+	for obj in get_tree().get_nodes_in_group("Persist"):
+		if obj.has_method("dumps"):
+			obj.dumps(data)
 
 	data.save_to_disk()
 
 
 func load_data():
-	for obj in get_tree().get_nodes_in_group("persistence"):
-		if obj.has_method("loads_data"):
-			obj.loads_data(data)
+	for obj in get_tree().get_nodes_in_group("Persist"):
+		if obj.has_method("loads"):
+			obj.loads(data)
 
 
 func save_settings():
