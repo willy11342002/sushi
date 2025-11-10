@@ -8,5 +8,5 @@ class_name AffixSetting extends DescriptionResource
 
 func random() -> Affix:
 	var affix = Affix.new()
-	affix.set_setting(get_uid_text())
+	affix.set_setting(self)
 	return affix
