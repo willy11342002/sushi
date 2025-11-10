@@ -1,65 +1,4 @@
 key,en,zh_TW
-
-# Sushi Types,,
-Gunkan,gunkan,軍艦
-GunkanDescription,"Gunkan sushi is a type of sushi where vinegared rice is wrapped with nori seaweed and topped with various loose or soft ingredients. Its name comes from its battleship-like appearance.\nThis design prevents toppings like salmon roe, sea urchin, and flying fish roe from falling off.",軍艦壽司是一種將醋飯用海苔圍起來，並在上方盛放各式鬆散或柔軟配料的壽司，因外型像軍艦而得名。\n這種設計能防止像鮭魚卵、海膽、飛魚卵等配料散落。
-Nigiri,nigiri,握壽司
-NigiriDescription,"Nigiri sushi is a classic type of sushi made by molding vinegared rice with seafood or other ingredients into a bite-sized piece.\nIt emphasizes the presentation of the \"main ingredient\" and is suitable for high-quality main ingredients.",握壽司是一種將醋飯與海鮮或其他食材捏製成一口大小的經典壽司。\n能夠突出「主食材」表現，適合高品質主料。
-NiriMaki,niri maki,壽司捲
-NiriMakiDescription,"Niri Maki is a type of sushi where vinegared rice and ingredients are placed on nori seaweed and then rolled up with a bamboo mat, allowing for a variety of ingredients to be enjoyed at once.",壽司捲是一種將醋飯和配料放在海苔上，再用竹簾捲起的壽司，可以一次享受多種食材。
-Temaki,temaki,手卷
-TemakiDescription,"Temaki is a type of sushi where vinegared rice and ingredients (such as seafood and vegetables) are placed on a crispy sheet of nori and rolled into a cone shape, making it easy to hold and eat with your hands.\nIt emphasizes the original flavors of the ingredients and the crispiness of the nori, and should be enjoyed fresh for the best taste.",手捲特色是將醋飯、配料（如海鮮、蔬菜等）放在烤酥脆的海苔上，並以錐形方式捲起，方便用手拿取食用。\n它強調食材的原味與海苔的香脆口感，需趁新鮮立即品嚐以享受最佳風味。
-
-# Sushi Ingredients,,
-Maguro,maguro,鮪魚
-MaguroDescription,"Maguro is a type of large, migratory pelagic fish that is loved for its firm texture in the lean meat portion and rich, delicate flavor in the fatty portion.",鮪魚是一種是一群大型的近海洄游魚類，因其瘦肉部分爽脆；肥肉部分油脂豐富，口感細膩而深受喜愛。
-Salmon,salmon,鮭魚
-SalmonDescription,"Salmon is a popular fish used in sushi, known for its rich flavor and creamy texture. It is commonly found in nigiri and sashimi.",鮭魚是一種常用於壽司的魚類，以其濃郁的風味和奶油般的口感而聞名。常見於握壽司或生魚片。
-Uni,uni,海膽
-UniDescription,"The sea urchin is renowned as the treasure of the sea, with a sweet taste and a delicate, melt-in-your-mouth texture.",海膽被譽為「海中珍寶」，味道甘甜、口感細膩，入口即化。
-Scallop,scallop,干貝
-ScallopDescription,"Scallops are known for their delicate texture and sweet, briny flavor, making them suitable for both raw consumption and quick cooking to retain tenderness.",干貝以其細緻彈嫩和明顯的海味甘甜著稱，適合生食或高溫快煮以保留嫩度。
-Eel,eel,鰻魚
-EelDescription,"Eel is known for its rich, fatty, and melt-in-your-mouth texture; freshwater eel is fattier and more flavorful, while saltwater eel is lighter.\nKey cooking points include removing the fishy smell, controlling the cooking time, and using sweet or sour sauces to balance the fat.",鰻魚以其油潤、濃郁且入口綿密的肉質著稱；淡水鰻較肥、風味重，海鰻較清爽。\n烹調重點是去腥、適度火候與善用甜醬或酸味來平衡油脂。
-Avocado,avocado,酪梨
-AvocadoDescription,"Avocado is known for its creamy, buttery texture, mild and versatile flavor, and nutritional profile rich in monounsaturated fats and fiber.",酪梨的特點是其綿密奶油般的口感、溫和且易搭配的風味，以及豐富單元不飽和脂肪與纖維的營養特性。
-Cucumber,cucumber,黃瓜
-CucumberDescription,"Cucumber is known for its high water content, refreshing crunch, and low calorie count, making it suitable as a salad or refreshing side dish; when handling, be sure to remove any bitterness and store quickly to maintain crispness and flavor.",黃瓜以高含水、清爽脆口與低熱量著稱，適合作為涼拌或清爽配菜，處理時注意去除苦味與儘快保存以保脆度與風味。
-Lemon,lemon,檸檬
-LemonDescription,"A citrus fruit known for its bright, tangy flavor and high vitamin C content. It is often used to add acidity and freshness to dishes, including sushi.",檸檬是一種以其明亮、酸爽的風味和高維生素C含量而聞名的柑橘類水果，常用於為菜餚增添酸度和清新感，包括壽司。
-Roe,roe,魚子
-Scallion,scallion,蔥
-ScallionDescription,"Scallions, also known as green onions, are known for their mild onion flavor and crisp texture. They are often used as a garnish or ingredient in various dishes, including sushi.",蔥，又稱青蔥，以其溫和的洋蔥風味和脆口感著稱，常用作各種料理的裝飾或配料，包括壽司。
-RoeDescription,"Fish roe refers to the fully ripe eggs of fish, often used as a delicacy in various cuisines. It is known for its unique texture and rich flavor.",魚子是指魚類的成熟卵，常作為各種料理中的美味佳餚，以其獨特的口感和豐富的風味著稱。
-Sesame,sesame,芝麻
-SesameDescription,"Sesame seeds are small, oil-rich seeds known for their nutty flavor and crunchy texture. They are often used as a garnish or ingredient in various dishes, including sushi.",芝麻是富含油脂的小種子，以其堅果風味和酥脆口感著稱，常用作各種料理的裝飾或配料，包括壽司。
-Soy,soy,醬油
-SoyDescription,"A traditional condiment made from fermented soybeans, wheat, salt, and water. It has a rich umami flavor and is commonly used in Japanese cuisine as a dipping sauce for sushi and sashimi.",一種由大豆、小麥、鹽和水發酵製成的傳統調味品，具有濃郁的鮮味，常用於日本料理中作為壽司和生魚片的沾醬。
-Wasabi,wasabi,芥末
-WasabiDescription,"A pungent green paste made from the grated rhizome of the wasabi plant. It has a sharp, spicy flavor that complements sushi and sashimi, providing a refreshing heat that clears the palate.",一種由山葵植物的根莖磨製而成的辛辣綠色醬料，具有強烈的辛辣風味，能夠襯托壽司和生魚片，帶來清爽的辣感，清潔味蕾。
-
-# Tags,,
-Shellfish,shellfish,貝類
-RedFish,red fish,紅肉魚
-WhiteFish,white fish,白肉魚
-Lipid,lipid,高脂
-Umami,umami,鮮味
-
-# Cooking Methods,,
-Raw,raw,生食
-RawDescription,"Raw food preserves the original flavor and nutritional value of the ingredients, allowing you to easily taste the freshness of the ingredients.",生食能夠保留食材的原始風味與營養價值，容易品嘗到食材本身的鮮甜。
-Aburi,aburi,炙燒
-AburiDescription,"Aburi is a cooking technique that involves lightly searing the surface of the ingredients with an open flame to create a caramelized, flavorful exterior while retaining the tenderness and original taste inside, resulting in a contrast of textures: crispy outside, tender inside / charred outside, raw inside.",炙燒是透過輕微的火烤使得食材表面焦香、褐化提升香氣與風味；內部仍保留嫩度與原味，產生口感上的「外脆內嫩／外焦內生」對比。
-SaltGrilled,salt grilled,鹽烤
-SaltGrilledDescription,"Salt grilling is a technique that directly seasons food with salt and grills it to bring out the natural flavors of the ingredients. Salt helps to dehydrate and slightly firm the surface, aiding in the formation of a crispy or slightly dry outer layer, suppressing fishy odors and highlighting the original taste.",鹽烤是一種以鹽直接調味並透過烤熱帶出食材本味的技法，鹽能脫水並使表面略緊實，有助於形成脆皮或略乾的外層，能抑制腥味並突顯原味。
-Pickled,pickled,醃製
-PickledDescription,"Pickling is a method of preserving food by anaerobic fermentation in brine or immersion in vinegar, which imparts a distinctive sour flavor.",醃製是一種通過在鹽水中厭氧發酵或浸泡在醋中來保存食物的方法，賦予其獨特的酸味。
-Fried,fried,油炸
-FriedDescription,"Frying is a cooking method that involves submerging food in hot oil, creating a crispy exterior while keeping the inside moist.",油炸是一種將食物浸入熱油中烹調的方法，能夠形成酥脆的外皮，同時保持內部的濕潤。
-Smoked,smoked,煙燻
-SmokedDescription,"Smoking is a method of flavoring, cooking, or preserving food by exposing it to smoke from burning or smoldering material, usually wood.",煙燻是一種通過將食物暴露在燃燒或悶燒材料（通常是木材）產生的煙霧中來調味、烹調或保存食物的方法。
-
-# Menu and Settings,,
 StartGame,Start Game,開始遊戲
 Settings,Settings,設定
 Credit,Credit,製作團隊
@@ -82,23 +21,4 @@ DeleteGame,Delete,刪除遊戲
 DeleteConfirm,Are you sure you want to delete this save file?,您確定要刪除此存檔嗎？
 SaveDataModifiedTime,Last Modified: {time},最後修改時間： {time}
 SaveGameSuccess,Game saved successfully!,遊戲儲存成功！
-Null, , 
 PleaseSelect,Please select an option,請選擇一個選項
-SelectSushiType,Select Sushi Type,選擇壽司類型
-Offering,Offering,菜色
-MainIngredient,Main,主料
-SecondaryIngredient,Secondary,配料
-TotalIngredient,Total,食材總數量
-StartCook,Start Cooking,開始料理
-
-EstimateQuality,Estimated Quality,預估品質
-Appearance,Appearance,色彩
-Aroma,Aroma,香氣
-Taste,Taste,風味
-Price,Price,價格
-Complexity,Complexity,複雜度
-AppearanceDescription,"Heigher appearance indicates a greater ability to attract customers.",色彩越高越容易吸引顧客點餐。
-AromaDescription,"A stronger aroma can entice customers to taste the sushi more quickly.",香氣越濃郁，顧客用餐的速度越快。
-TasteDescription,"Better taste leads to higher customer satisfaction and increased likelihood of repeat orders.",風味越佳，顧客滿意度越高，回購率也越高。
-PriceDescription,"Prices that match customer satisfaction are more likely to be accepted.",與顧客滿意度匹配的價格更容易被客戶接受。
-ComplexityDescription,"Complexity affects serving speed, simpler dishes can be served faster.",複雜度影響出餐速度，簡單的料理可以更快上桌。

@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Tag" load_steps=2 format=3 uid="uid://d2a57x7xcx7bp"]
-
-[ext_resource type="Script" uid="uid://covowudrlcs6n" path="res://scripts/resources/tag.gd" id="1_qkpc2"]
-
-[resource]
-resource_name = "RedFish"
-script = ExtResource("1_qkpc2")
-metadata/_custom_type_script = "uid://covowudrlcs6n"

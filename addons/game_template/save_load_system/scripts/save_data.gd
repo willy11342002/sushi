@@ -6,8 +6,6 @@ class_name SaveData extends Resource
 @export var modified_time: int = 0
 
 @export var temp: Dictionary = {}
-@export var sushi_types: Array[SushiType] = []
-@export var ingredients: Array[Ingredient] = []
 
 @export var inventories: Array[SlotResource] = []
 

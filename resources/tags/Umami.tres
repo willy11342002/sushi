@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Tag" load_steps=2 format=3 uid="uid://cu341fkamcuud"]
-
-[ext_resource type="Script" uid="uid://covowudrlcs6n" path="res://scripts/resources/tag.gd" id="1_hy3a7"]
-
-[resource]
-resource_name = "Umami"
-script = ExtResource("1_hy3a7")
-metadata/_custom_type_script = "uid://covowudrlcs6n"
