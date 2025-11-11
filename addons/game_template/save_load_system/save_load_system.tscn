@@ -76,23 +76,23 @@ layout_mode = 2
 
 [node name="CreateButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "CreateNewGame"
+text = "UI_CreateNewGame"
 
 [node name="LoadButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "LoadGame"
+text = "UI_LoadGame"
 
 [node name="SaveButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "SaveGame"
+text = "UI_SaveGame"
 
 [node name="DeleteButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "DeleteGame"
+text = "UI_DeleteGame"
 
 [node name="ExitButton" type="Button" parent="MainContainer/HBoxContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Exit"
+text = "UI_Exit"
 
 [connection signal="button_up" from="MainContainer/HBoxContainer/MarginContainer/VBoxContainer/CreateButton" to="." method="_show_create_dialog"]
 [connection signal="button_up" from="MainContainer/HBoxContainer/MarginContainer/VBoxContainer/LoadButton" to="." method="_on_load_button_up"]

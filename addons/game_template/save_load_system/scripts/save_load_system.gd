@@ -76,7 +76,7 @@ func _show_create_dialog() -> void:
 func _show_delete_dialog() -> void:
 	var dialog: ConfirmDialog = confirm_dialog_scene.instantiate() as ConfirmDialog
 	add_child(dialog)
-	dialog.show_dialog(_on_delete_button_confirm, "DeleteConfirm")
+	dialog.show_dialog(_on_delete_button_confirm, "UI_DeleteConfirm")
 
 
 func _on_create_button_confirm(title: String) -> void:
@@ -94,7 +94,7 @@ func _on_save_button_up() -> void:
 	Persistence.save_data()
 	var dialog: AlertDialog = alert_dialog_scene.instantiate() as AlertDialog
 	add_child(dialog)
-	dialog.show_dialog(func(): pass, "SaveGameSuccess")
+	dialog.show_dialog(func(): pass, "UI_SaveGameSuccess")
 
 
 func _on_delete_button_confirm():

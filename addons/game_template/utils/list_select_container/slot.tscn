@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://cgj56mo7eaglw" path="res://addons/game_template/utils/attribute_tracker.gd" id="2_ub0uf"]
 
 [node name="SlotButton" type="Button"]
-text = "PleaseSelect"
+text = "UI_PleaseSelect"
 script = ExtResource("1_fq4tr")
 
 [node name="TrackResource" type="Node" parent="." node_paths=PackedStringArray("resource_node", "target_node")]

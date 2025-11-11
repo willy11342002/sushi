@@ -78,7 +78,7 @@ text = "Rename"
 [node name="CancelButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Exit"
+text = "UI_Exit"
 
 [connection signal="text_submitted" from="PanelContainer/MarginContainer/VBoxContainer/Input" to="." method="confirm"]
 [connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="PanelContainer" method="hide"]

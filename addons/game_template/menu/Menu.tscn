@@ -44,19 +44,19 @@ layout_mode = 2
 
 [node name="StartGameButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "StartGame"
+text = "UI_StartGame"
 
 [node name="SettingsButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Settings"
+text = "UI_Settings"
 
 [node name="CreditButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Credit"
+text = "UI_Credit"
 
 [node name="ExitButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Exit"
+text = "UI_Exit"
 
 [connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/StartGameButton" to="." method="_on_start_game_button_up"]
 [connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_up"]

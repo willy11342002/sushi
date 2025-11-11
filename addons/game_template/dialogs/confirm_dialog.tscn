@@ -65,7 +65,7 @@ alignment = 2
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_vertical = 3
-text = "DeleteConfirm"
+text = "UI_DeleteConfirm"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
@@ -77,12 +77,12 @@ alignment = 1
 [node name="ConfirmButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Confirm"
+text = "UI_Confirm"
 
 [node name="CancelButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Exit"
+text = "UI_Exit"
 
 [connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/ConfirmButton" to="PanelContainer" method="hide"]
 [connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CancelButton" to="PanelContainer" method="hide"]

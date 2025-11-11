@@ -1,0 +1,24 @@
+key,en,zh_TW
+UI_StartGame,Start Game,開始遊戲
+UI_Settings,Settings,設定
+UI_Credit,Credit,製作團隊
+UI_Confirm,Confirm,確認
+UI_Exit,Exit,退出
+UI_Video,Video,視訊
+UI_Audio,Audio,音訊
+UI_Input,Input,輸入
+UI_FullScreen,Full Screen,全螢幕
+UI_Resolution,Resolution,解析度
+UI_Language,Language,語言
+UI_MasterVolume,Master,主音量
+UI_BGMVolume,BGM,背景音量
+UI_SFXVolume,SFX,音效音量
+UI_UIVolume,UI,介面音量
+UI_CreateNewGame,Create New,建立新遊戲
+UI_LoadGame,Load,載入遊戲
+UI_SaveGame,Save,儲存遊戲
+UI_DeleteGame,Delete,刪除遊戲
+UI_DeleteConfirm,Are you sure you want to delete this save file?,您確定要刪除此存檔嗎？
+UI_SaveDataModifiedTime,Last Modified: {time},最後修改時間： {time}
+UI_SaveGameSuccess,Game saved successfully!,遊戲儲存成功！
+UI_PleaseSelect,Please select an option,請選擇一個選項

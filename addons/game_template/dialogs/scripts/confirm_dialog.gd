@@ -7,7 +7,7 @@ class_name ConfirmDialog extends Control
 @export var cancel_button: Button
 
 
-func show_dialog(confirm :Callable, message := "", confirm_button_text := "Confirm"):
+func show_dialog(confirm :Callable, message := "", confirm_button_text := "UI_Confirm"):
 	message_label.text = message
 
 	confirm_button.text = confirm_button_text

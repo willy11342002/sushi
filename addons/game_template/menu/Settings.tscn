@@ -37,39 +37,39 @@ custom_minimum_size = Vector2(400, 200)
 layout_mode = 2
 current_tab = 0
 
-[node name="Video" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+[node name="UI_Video" type="MarginContainer" parent="VBoxContainer/TabContainer"]
 layout_mode = 2
 metadata/_tab_index = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Video"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/UI_Video"]
 layout_mode = 2
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Video/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Video/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Video/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-text = "FullScreen"
+text = "UI_FullScreen"
 
-[node name="FullscreenButton" type="CheckButton" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer"]
+[node name="FullscreenButton" type="CheckButton" parent="VBoxContainer/TabContainer/UI_Video/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 flat = true
 script = ExtResource("2_jkr0v")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Video/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Video/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Video/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-text = "Resolution"
+text = "UI_Resolution"
 
-[node name="ResolutionSelect" type="OptionButton" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer2"]
+[node name="ResolutionSelect" type="OptionButton" parent="VBoxContainer/TabContainer/UI_Video/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 selected = 0
@@ -86,21 +86,21 @@ popup/item_4/text = "1920x1080"
 popup/item_4/id = 4
 script = ExtResource("3_ah25y")
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/Video/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Video/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Video/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
-text = "Language"
+text = "UI_Language"
 
-[node name="LanguageButton" type="OptionButton" parent="VBoxContainer/TabContainer/Video/VBoxContainer/HBoxContainer3"]
+[node name="LanguageButton" type="OptionButton" parent="VBoxContainer/TabContainer/UI_Video/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(120, 0)
 layout_mode = 2
 script = ExtResource("4_ljcmn")
 
-[node name="Audio" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+[node name="UI_Audio" type="MarginContainer" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 16
@@ -109,70 +109,70 @@ theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 8
 metadata/_tab_index = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Audio"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/UI_Audio"]
 layout_mode = 2
 alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "MasterVolume"
+text = "UI_MasterVolume"
 
-[node name="MasterSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer"]
+[node name="MasterSlider" type="HSlider" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(120, 24)
 layout_mode = 2
 script = ExtResource("2_6fe0h")
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "BGMVolume"
+text = "UI_BGMVolume"
 
-[node name="BGMSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer2"]
+[node name="BGMSlider" type="HSlider" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(120, 24)
 layout_mode = 2
 script = ExtResource("2_6fe0h")
 bus_name = "BGM"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "SFXVolume"
+text = "UI_SFXVolume"
 
-[node name="SFXSlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer3"]
+[node name="SFXSlider" type="HSlider" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(120, 24)
 layout_mode = 2
 script = ExtResource("2_6fe0h")
 bus_name = "SFX"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/TabContainer/Audio/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer"]
 layout_mode = 2
 alignment = 1
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(80, 0)
 layout_mode = 2
-text = "UIVolume"
+text = "UI_UIVolume"
 
-[node name="UISlider" type="HSlider" parent="VBoxContainer/TabContainer/Audio/VBoxContainer/HBoxContainer4"]
+[node name="UISlider" type="HSlider" parent="VBoxContainer/TabContainer/UI_Audio/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(120, 24)
 layout_mode = 2
 script = ExtResource("2_6fe0h")
 bus_name = "UI"
 
-[node name="Input" type="MarginContainer" parent="VBoxContainer/TabContainer"]
+[node name="UI_Input" type="MarginContainer" parent="VBoxContainer/TabContainer"]
 visible = false
 layout_mode = 2
 theme_override_constants/margin_left = 8
@@ -181,79 +181,79 @@ theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 16
 metadata/_tab_index = 2
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/Input"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/TabContainer/UI_Input"]
 layout_mode = 2
 horizontal_scroll_mode = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Camera Control"
 horizontal_alignment = 1
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 text = "Camera Move Top"
 
-[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer2"]
+[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer/HBoxContainer2"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("2_xmei1")
 action = "camera_move_up"
 
-[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer4"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 text = "Camera Move Down"
 
-[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer4"]
+[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer/HBoxContainer4"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("2_xmei1")
 action = "camera_move_down"
 
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer3"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 text = "Camera Move Left"
 
-[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer3"]
+[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer/HBoxContainer3"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 3
 script = ExtResource("2_xmei1")
 action = "camera_move_left"
 
-[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer"]
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer5"]
+[node name="Label" type="Label" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer/HBoxContainer5"]
 custom_minimum_size = Vector2(180, 0)
 layout_mode = 2
 text = "Camera Move Right"
 
-[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/Input/ScrollContainer/VBoxContainer/HBoxContainer5"]
+[node name="RemapButton" type="Button" parent="VBoxContainer/TabContainer/UI_Input/ScrollContainer/VBoxContainer/HBoxContainer5"]
 custom_minimum_size = Vector2(90, 0)
 layout_mode = 2
 size_flags_horizontal = 3
@@ -266,6 +266,6 @@ alignment = 1
 
 [node name="BackButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "Exit"
+text = "UI_Exit"
 
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/BackButton" to="." method="_on_exit_button_up"]

@@ -71,6 +71,6 @@ autowrap_mode = 3
 
 [node name="ConfirmButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Confirm"
+text = "UI_Confirm"
 
 [connection signal="button_up" from="PanelContainer/MarginContainer/VBoxContainer/ConfirmButton" to="PanelContainer" method="hide"]

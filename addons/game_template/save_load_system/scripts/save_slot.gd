@@ -12,7 +12,7 @@ func title():
 
 func last_updated():
 	var time: String = Time.get_datetime_string_from_unix_time(modified_time)
-	return tr("SaveDataModifiedTime").format({"time": time})
+	return tr("UI_SaveDataModifiedTime").format({"time": time})
 
 
 func setup_from_file(_file_name: String, _modified_time: int, _full_path: String) -> void:

@@ -7,7 +7,7 @@ class_name InputDialog extends Control
 
 var confirm_callback: Callable
 
-func show_dialog(_confirm :Callable, placeholder := "", confirm_button_text := "Confirm"):
+func show_dialog(_confirm :Callable, placeholder := "", confirm_button_text := "UI_Confirm"):
 	confirm_callback = _confirm
 	input_field.placeholder_text = placeholder
 	input_field.grab_focus()
