@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=6 format=3 uid="uid://ditsur0o6ndfo"]
+
+[ext_resource type="SpriteFrames" uid="uid://j1fm2njivkp7" path="res://characters/sprites/Angler/angler_down.aseprite" id="1_lntsd"]
+[ext_resource type="Texture2D" uid="uid://bj30vss7tp8oc" path="res://characters/sprites/Angler/angler_icon.png" id="2_lntsd"]
+[ext_resource type="Script" uid="uid://d2gu14vnt0edd" path="res://characters/scripts/character_data.gd" id="3_2jffk"]
+[ext_resource type="SpriteFrames" uid="uid://dhsvf1wdcwrk0" path="res://characters/sprites/Angler/angler_side.aseprite" id="4_v3wrj"]
+[ext_resource type="SpriteFrames" uid="uid://dwquqmptlu1gk" path="res://characters/sprites/Angler/angler_up.aseprite" id="5_1f74m"]
+
+[resource]
+resource_name = "Angler"
+script = ExtResource("3_2jffk")
+icon = ExtResource("2_lntsd")
+up_frames = ExtResource("5_1f74m")
+side_frames = ExtResource("4_v3wrj")
+down_frames = ExtResource("1_lntsd")
+metadata/_custom_type_script = "uid://d2gu14vnt0edd"

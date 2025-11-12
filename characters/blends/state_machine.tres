@@ -1,0 +1,26 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=6 format=3 uid="uid://1ve3c70gpnlr"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_gw7xn"]
+animation = &"idle_4"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_f2jf7"]
+animation = &"walk_8"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dp5bc"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ser6x"]
+advance_mode = 2
+advance_expression = "state == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y0wnm"]
+advance_mode = 2
+advance_expression = "state != 0"
+
+[resource]
+states/Start/position = Vector2(166, 100)
+states/idle_4/node = SubResource("AnimationNodeAnimation_gw7xn")
+states/idle_4/position = Vector2(303, 221)
+states/walk_8/node = SubResource("AnimationNodeAnimation_f2jf7")
+states/walk_8/position = Vector2(303, 100)
+transitions = ["Start", "walk_8", SubResource("AnimationNodeStateMachineTransition_dp5bc"), "walk_8", "idle_4", SubResource("AnimationNodeStateMachineTransition_ser6x"), "idle_4", "walk_8", SubResource("AnimationNodeStateMachineTransition_y0wnm")]

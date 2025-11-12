@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=6 format=3 uid="uid://dlprvvnc8m0vf"]
+
+[ext_resource type="SpriteFrames" uid="uid://cqklel7mqgkvq" path="res://characters/sprites/Inn Keeper/inn keeper_down.aseprite" id="1_qgeyb"]
+[ext_resource type="Texture2D" uid="uid://egi4pte1com8" path="res://characters/sprites/Inn Keeper/inn keeper_icon.png" id="2_qgeyb"]
+[ext_resource type="Script" uid="uid://d2gu14vnt0edd" path="res://characters/scripts/character_data.gd" id="3_5isij"]
+[ext_resource type="SpriteFrames" uid="uid://bf4dm6bcyji3n" path="res://characters/sprites/Inn Keeper/inn keeper_side.aseprite" id="4_dpcal"]
+[ext_resource type="SpriteFrames" uid="uid://c0qn7fjkt8g7j" path="res://characters/sprites/Inn Keeper/inn keeper_up.aseprite" id="5_5isij"]
+
+[resource]
+resource_name = "Inn Keeper"
+script = ExtResource("3_5isij")
+icon = ExtResource("2_qgeyb")
+up_frames = ExtResource("5_5isij")
+side_frames = ExtResource("4_dpcal")
+down_frames = ExtResource("1_qgeyb")
+metadata/_custom_type_script = "uid://d2gu14vnt0edd"

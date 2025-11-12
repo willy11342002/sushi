@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=6 format=3 uid="uid://bwm4sstgqinn"]
+
+[ext_resource type="SpriteFrames" uid="uid://dvbm4yc7cw635" path="res://characters/sprites/Blacksmith/blacksmith_down.aseprite" id="1_8cauw"]
+[ext_resource type="Texture2D" uid="uid://b8qtm53dba2rw" path="res://characters/sprites/Blacksmith/blacksmith_icon.png" id="2_20g13"]
+[ext_resource type="Script" uid="uid://d2gu14vnt0edd" path="res://characters/scripts/character_data.gd" id="3_qyobh"]
+[ext_resource type="SpriteFrames" uid="uid://bmeawqcgiioy8" path="res://characters/sprites/Blacksmith/blacksmith_side.aseprite" id="4_qyobh"]
+[ext_resource type="SpriteFrames" uid="uid://k2mbrnrpc40v" path="res://characters/sprites/Blacksmith/blacksmith_up.aseprite" id="5_0xub7"]
+
+[resource]
+resource_name = "Blacksmith"
+script = ExtResource("3_qyobh")
+icon = ExtResource("2_20g13")
+up_frames = ExtResource("5_0xub7")
+side_frames = ExtResource("4_qyobh")
+down_frames = ExtResource("1_8cauw")
+metadata/_custom_type_script = "uid://d2gu14vnt0edd"

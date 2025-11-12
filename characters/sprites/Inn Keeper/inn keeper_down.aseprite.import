@@ -1,0 +1,21 @@
+[remap]
+
+importer="aseprite_wizard.plugin.spriteframes"
+type="SpriteFrames"
+uid="uid://cqklel7mqgkvq"
+path="res://.godot/imported/inn keeper_down.aseprite-9c9640d909cef75a09cb0b239ca369d7.res"
+
+[deps]
+
+source_file="res://characters/sprites/Inn Keeper/inn keeper_down.aseprite"
+dest_files=["res://.godot/imported/inn keeper_down.aseprite-9c9640d909cef75a09cb0b239ca369d7.res"]
+
+[params]
+
+layer/exclude_layers_pattern=""
+layer/only_visible_layers=true
+sheet/sheet_type="packed"
+sheet/sheet_columns=12
+sheet/frame_padding=0
+sheet/scale=1
+animation/round_fps=true

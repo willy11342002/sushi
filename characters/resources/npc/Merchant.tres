@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=6 format=3 uid="uid://svbvl1kwgt1n"]
+
+[ext_resource type="SpriteFrames" uid="uid://mwxeeu7dexu8" path="res://characters/sprites/Merchant/merchant_down.aseprite" id="1_ne50o"]
+[ext_resource type="Texture2D" uid="uid://bu3rqs3lm28xh" path="res://characters/sprites/Merchant/merchant_icon.png" id="2_23do4"]
+[ext_resource type="Script" uid="uid://d2gu14vnt0edd" path="res://characters/scripts/character_data.gd" id="3_fopvi"]
+[ext_resource type="SpriteFrames" uid="uid://d337ldkt54erp" path="res://characters/sprites/Merchant/merchant_side.aseprite" id="4_fopvi"]
+[ext_resource type="SpriteFrames" uid="uid://qkl0x0pgstrk" path="res://characters/sprites/Merchant/merchant_up.aseprite" id="5_cimsd"]
+
+[resource]
+resource_name = "Merchant"
+script = ExtResource("3_fopvi")
+icon = ExtResource("2_23do4")
+up_frames = ExtResource("5_cimsd")
+side_frames = ExtResource("4_fopvi")
+down_frames = ExtResource("1_ne50o")
+metadata/_custom_type_script = "uid://d2gu14vnt0edd"
