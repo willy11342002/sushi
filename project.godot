@@ -44,7 +44,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/game_template/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/simple_resource_icons/plugin.cfg", "res://addons/sprite_frames_generator/plugin.cfg")
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg", "res://addons/game_template/plugin.cfg", "res://addons/resources_spreadsheet_view/plugin.cfg", "res://addons/simple_resource_icons/plugin.cfg")
 
 [global_group]
 

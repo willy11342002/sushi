@@ -25,4 +25,3 @@ func get_component(component_type: Variant) -> BaseComponent:
 
 var last_facing_direction: Vector2 = Vector2.DOWN
 @export var move_speed: float = 200.0
-
