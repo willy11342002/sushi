@@ -1,10 +1,11 @@
-[gd_scene load_steps=93 format=3 uid="uid://biqnq1j282u1y"]
+[gd_scene load_steps=94 format=3 uid="uid://biqnq1j282u1y"]
 
 [ext_resource type="Script" uid="uid://kp8l7c5wl63i" path="res://characters/scripts/character.gd" id="1_7o3r7"]
 [ext_resource type="Texture2D" path="res://.godot/imported/chef_down.aseprite-91332d625bed1a52d55d2ed519700181.chef_down.texture.res" id="2_2eexv"]
 [ext_resource type="Script" uid="uid://d2gu14vnt0edd" path="res://characters/scripts/character_data.gd" id="3_icg82"]
 [ext_resource type="Texture2D" path="res://.godot/imported/chef_side.aseprite-739ccc7eace6efe34c6482291dc76336.chef_side.texture.res" id="4_nal3f"]
 [ext_resource type="Texture2D" path="res://.godot/imported/chef_up.aseprite-9dfdc4ac91c33cd8edb5af02684458ac.chef_up.texture.res" id="5_nxqrm"]
+[ext_resource type="Texture2D" uid="uid://b0hpq3atmphd0" path="res://characters/sprites/body/Body.png" id="6_nal3f"]
 [ext_resource type="Shader" uid="uid://cbbxylynti7il" path="res://characters/shaders/color.gdshader" id="7_8elyy"]
 [ext_resource type="Texture2D" uid="uid://bjxpa7ey4ekx1" path="res://characters/sprites/head/Head.png" id="7_lk8yq"]
 [ext_resource type="Texture2D" uid="uid://drsrjm3r1ah40" path="res://characters/sprites/face/eyes/EyesGlasses.png" id="8_dt7v0"]
@@ -631,9 +632,15 @@ metadata/_custom_type_script = "uid://d2gu14vnt0edd"
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nal3f"]
 shader = ExtResource("7_8elyy")
+shader_parameter/new_color = Color(0.8966843, 0.73248017, 0.6557826, 1)
+shader_parameter/threahold = Color(0, 0, 0, 1)
+shader_parameter/colors = PackedColorArray(1, 0.8156863, 0.7294118, 1, 0, 0, 0, 0)
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nxqrm"]
 shader = ExtResource("7_8elyy")
+shader_parameter/new_color = Color(0, 0, 0, 1)
+shader_parameter/threahold = Color(0, 0, 0, 1)
+shader_parameter/colors = PackedColorArray(0.98, 0.392, 0.392, 1, 0.1325, 0.53, 0, 1)
 
 [node name="Player" type="CharacterBody2D"]
 motion_mode = 1
@@ -641,6 +648,10 @@ script = ExtResource("1_7o3r7")
 data = SubResource("Resource_5p0t6")
 
 [node name="Node2D" type="Node2D" parent="."]
+
+[node name="Body" type="Sprite2D" parent="Node2D"]
+texture = ExtResource("6_nal3f")
+hframes = 8
 
 [node name="Head" type="Sprite2D" parent="Node2D"]
 material = SubResource("ShaderMaterial_nal3f")
